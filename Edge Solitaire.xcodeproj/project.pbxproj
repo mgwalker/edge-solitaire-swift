@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B92BAE8B193EA93A001D3093 /* GameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE8A193EA93A001D3093 /* GameModeViewController.swift */; };
+		B92BAE901947D29B001D3093 /* GameModeControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */; };
+		B92BAE921947D328001D3093 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE911947D328001D3093 /* Card.swift */; };
+		B92BAE961947DF95001D3093 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE951947DF95001D3093 /* GameViewController.swift */; };
 		B98AA74A193D535200779305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA749193D535200779305 /* AppDelegate.swift */; };
-		B98AA74D193D535200779305 /* Edge_Solitaire.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B98AA74B193D535200779305 /* Edge_Solitaire.xcdatamodeld */; };
-		B98AA74F193D535200779305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA74E193D535200779305 /* ViewController.swift */; };
+		B98AA74F193D535200779305 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA74E193D535200779305 /* LandingViewController.swift */; };
 		B98AA752193D535200779305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98AA750193D535200779305 /* Main.storyboard */; };
 		B98AA754193D535200779305 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98AA753193D535200779305 /* Images.xcassets */; };
 		B98AA760193D535200779305 /* Edge_SolitaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA75F193D535200779305 /* Edge_SolitaireTests.swift */; };
@@ -26,11 +29,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B92BAE8A193EA93A001D3093 /* GameModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModeViewController.swift; sourceTree = "<group>"; };
+		B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModeControllerProtocol.swift; sourceTree = "<group>"; };
+		B92BAE911947D328001D3093 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		B92BAE951947DF95001D3093 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B98AA744193D535200779305 /* Edge Solitaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edge Solitaire.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98AA748193D535200779305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B98AA749193D535200779305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B98AA74C193D535200779305 /* Edge_Solitaire.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Edge_Solitaire.xcdatamodel; sourceTree = "<group>"; };
-		B98AA74E193D535200779305 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B98AA74E193D535200779305 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		B98AA751193D535200779305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B98AA753193D535200779305 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B98AA759193D535200779305 /* Edge SolitaireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Edge SolitaireTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B92BAE8E1947D285001D3093 /* Game Modes */ = {
+			isa = PBXGroup;
+			children = (
+				B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */,
+			);
+			name = "Game Modes";
+			sourceTree = "<group>";
+		};
 		B98AA73B193D535200779305 = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +91,15 @@
 		B98AA746193D535200779305 /* Edge Solitaire */ = {
 			isa = PBXGroup;
 			children = (
+				B92BAE8E1947D285001D3093 /* Game Modes */,
 				B98AA749193D535200779305 /* AppDelegate.swift */,
-				B98AA74E193D535200779305 /* ViewController.swift */,
+				B98AA74E193D535200779305 /* LandingViewController.swift */,
+				B92BAE8A193EA93A001D3093 /* GameModeViewController.swift */,
+				B92BAE951947DF95001D3093 /* GameViewController.swift */,
 				B98AA750193D535200779305 /* Main.storyboard */,
 				B98AA753193D535200779305 /* Images.xcassets */,
-				B98AA74B193D535200779305 /* Edge_Solitaire.xcdatamodeld */,
 				B98AA747193D535200779305 /* Supporting Files */,
+				B92BAE911947D328001D3093 /* Card.swift */,
 			);
 			path = "Edge Solitaire";
 			sourceTree = "<group>";
@@ -211,9 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B98AA74F193D535200779305 /* ViewController.swift in Sources */,
+				B98AA74F193D535200779305 /* LandingViewController.swift in Sources */,
+				B92BAE8B193EA93A001D3093 /* GameModeViewController.swift in Sources */,
+				B92BAE921947D328001D3093 /* Card.swift in Sources */,
+				B92BAE901947D29B001D3093 /* GameModeControllerProtocol.swift in Sources */,
+				B92BAE961947DF95001D3093 /* GameViewController.swift in Sources */,
 				B98AA74A193D535200779305 /* AppDelegate.swift in Sources */,
-				B98AA74D193D535200779305 /* Edge_Solitaire.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +423,7 @@
 				B98AA765193D535200779305 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B98AA766193D535200779305 /* Build configuration list for PBXNativeTarget "Edge SolitaireTests" */ = {
 			isa = XCConfigurationList;
@@ -411,21 +432,9 @@
 				B98AA768193D535200779305 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B98AA74B193D535200779305 /* Edge_Solitaire.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B98AA74C193D535200779305 /* Edge_Solitaire.xcdatamodel */,
-			);
-			currentVersion = B98AA74C193D535200779305 /* Edge_Solitaire.xcdatamodel */;
-			path = Edge_Solitaire.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B98AA73C193D535200779305 /* Project object */;
 }

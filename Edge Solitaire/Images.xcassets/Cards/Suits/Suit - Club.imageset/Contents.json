@@ -1,0 +1,30 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "Club.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Club-1.png"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "Club-1-1.png",
+      "widthClass" : "compact",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "Club-1-1-1.png",
+      "widthClass" : "compact",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
