@@ -59,7 +59,14 @@ class Card
 				cards += Card(suit:suit, rank:rank);
 			}
 		}
+		
+		Card.shuffle(cards);
 
+		return cards;
+	}
+	
+	class func shuffle(cards:Card[])
+	{
 		for i in 0..cards.count
 		{
 			let swap = Int(arc4random_uniform(52 - UInt32(i)));
@@ -67,7 +74,5 @@ class Card
 			cards[51 - i] = cards[swap];
 			cards[swap] = temp;
 		}
-		
-		return cards;
 	}
 }
