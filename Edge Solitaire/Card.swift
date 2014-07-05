@@ -59,10 +59,10 @@ class Card
 				cards += Card(suit:suit, rank:rank);
 			}
 		}
-		
+
 		for i in 0..cards.count
 		{
-			let swap = Int(arc4random()) % (52 - i);
+			let swap = Int(arc4random_uniform(52 - UInt32(i)));
 			var temp = cards[51 - i];
 			cards[51 - i] = cards[swap];
 			cards[swap] = temp;
