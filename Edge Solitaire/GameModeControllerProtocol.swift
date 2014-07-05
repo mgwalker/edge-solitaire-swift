@@ -74,22 +74,29 @@ class CardHelper
 {
 	class func imageForCard(card:Card) -> UIImage
 	{
+		let suitColor = (card.suit == Card.Suit.Diamond || card.suit == Card.Suit.Heart ? UIColor.redColor() : UIColor.blackColor());
+		
+		//let template = UIImage.tintedImage(named: "Card Template", tint:suitColor);
 		let template = UIImage(named: "Card Template");
-		let suit = UIImage.tintedImage(named: "Suit - Club", tint: UIColor.redColor());
-		let rank = UIImage.tintedImage(named: "Rank - Eight", tint:UIColor.whiteColor());
+		let suit = UIImage.tintedImage(named: "Suit - \(card.suit.toRaw())", tint:suitColor);
+		let rank = UIImage.tintedImage(named: "Rank - \(card.rank.toRaw())", tint:UIColor.whiteColor());
 		
 		UIGraphicsBeginImageContext(template.size);
 		let context = UIGraphicsGetCurrentContext();
 		
 		template.drawAtPoint(CGPoint(x: 0, y: 0));
 		
-		var rankCenterX = 75 - (rank.size.width / 2.0);
-		var rankCenterY = 87.5 - (rank.size.height / 2.0);
-		rank.drawAtPoint(CGPoint(x: rankCenterX, y: rankCenterY));
+		var rankX = 75 - (rank.size.width / 2.0);
+		var rankY = 87.5 - (rank.size.height / 2.0);
+		rank.drawAtPoint(CGPoint(x: rankX, y: rankY));
 		
-		rankCenterX = template.size.width - rankCenterX - rank.size.width;
-		rankCenterY = template.size.height - rankCenterY - rank.size.height;
-		rank.drawAtPoint(CGPoint(x: rankCenterX, y: rankCenterY));
+		rankX = template.size.width - rankX - rank.size.width;
+		rankY = template.size.height - rankY - rank.size.height;
+		rank.drawAtPoint(CGPoint(x: rankX, y: rankY));
+		
+		var suitX = (template.size.width - suit.size.width) / 2.0;
+		var suitY = (template.size.height - suit.size.height) / 2.0;
+		suit.drawAtPoint(CGPoint(x: suitX, y: suitY));
 		
 		let final = UIGraphicsGetImageFromCurrentImageContext();
 		UIGraphicsEndImageContext();

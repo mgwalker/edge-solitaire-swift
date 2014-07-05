@@ -9,18 +9,6 @@
       "idiom" : "universal",
       "scale" : "2x",
       "filename" : "8-1.png"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "8-1-1-1.png",
-      "widthClass" : "compact",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "8-1-1.png",
-      "widthClass" : "compact",
-      "scale" : "2x"
     }
   ],
   "info" : {

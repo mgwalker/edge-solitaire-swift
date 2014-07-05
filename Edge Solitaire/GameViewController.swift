@@ -10,7 +10,7 @@ import UIKit
 
 class CardSpotCell:UICollectionViewCell
 {
-	
+	@IBOutlet var imageView:UIImageView;
 }
 
 class GameViewController:UIViewController,UICollectionViewDataSource,UICollectionViewDelegate
@@ -26,8 +26,6 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	{
 		self.setBackground();
 		deck = Card.newDeck();
-		
-		cardCollection.registerClass(CardSpotCell.self, forCellWithReuseIdentifier: "Card Collection View");
 	}
 	
 	override func viewWillAppear(animated: Bool)
@@ -86,9 +84,9 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
 	{
 		var tableViewCell = UICollectionViewCell();
-		if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Card Collection View", forIndexPath: indexPath) as? CardSpotCell
+		if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Card Spot Cell", forIndexPath: indexPath) as? CardSpotCell
 		{
-			cell.backgroundColor = UIColor.yellowColor();
+			cell.imageView.image = CardHelper.imageForCard(deck[indexPath.row]);
 			tableViewCell = cell;
 		};
 		return tableViewCell;
