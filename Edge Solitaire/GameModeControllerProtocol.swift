@@ -98,15 +98,16 @@ class CardHelper
 		rank.drawAtPoint(CGPoint(x: rankX, y: rankY));
 		
 		let rankValue = card.rank.toRaw();
-		
+
+		let centerX = (template.size.width - suit.size.width) / 2.0;
+		let centerY = (template.size.height - suit.size.height) / 2.0;
+
 		if rankValue > 1 && rankValue < 11
 		{
 			let suitWidth = suit.size.width;
 			let suitHalfWidth = suitWidth / 2.0;
 			let suitHeight = suit.size.height;
 			let suitHalfHeight = suitHeight / 2.0;
-			let centerX = (template.size.width - suitWidth) / 2.0;
-			let centerY = (template.size.height - suitHeight) / 2.0;
 			
 			if rankValue == 3 || rankValue == 5 || rankValue == 9
 			{
@@ -139,7 +140,7 @@ class CardHelper
 			}
 			if rankValue == 7
 			{
-				suit.drawAtPoint(CGPoint(x: centerX, y: centerY - suitHalfHeight));
+				suit.drawAtPoint(CGPoint(x: centerX, y: centerY - suitHeight));
 			}
 			if rankValue == 8 || rankValue == 9 || rankValue == 10
 			{
@@ -165,6 +166,17 @@ class CardHelper
 			ace.drawAtPoint(CGPoint(
 				x: (template.size.width - ace.size.width) / 2.0,
 				y: (template.size.height - ace.size.height) / 2.0));
+		}
+		else if rankValue > 10
+		{
+			let degrees:Double = (card.rank == Card.Rank.Jack ? 181 : (card.rank == Card.Rank.Queen ? 271 : 360));
+			for var angle:Double = 0; angle < degrees; angle += 22.5
+			{
+				var rad = (angle / 180.0) * Double(M_PI);
+				var x = (Float(cos(rad)) * suit.size.width * 1.5) + centerX;
+				var y = (Float(sin(rad)) * suit.size.height * 1.5) + centerY;
+				suit.drawAtPoint(CGPoint(x: x, y: y));
+			}
 		}
 		
 		let final = UIGraphicsGetImageFromCurrentImageContext();
