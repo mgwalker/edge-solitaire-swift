@@ -303,20 +303,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pkn-0N-vA0">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card Spot" translatesAutoresizingMaskIntoConstraints="NO" id="pkn-0N-vA0" userLabel="Card Spot">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VCE-vB-DIz" userLabel="Card Marker">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PMl-0A-5P6" userLabel="Card">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="VCE-vB-DIz" secondAttribute="bottom" id="3m0-9M-o31"/>
+                                            <constraint firstAttribute="trailing" secondItem="VCE-vB-DIz" secondAttribute="trailing" id="8YV-bq-w56"/>
                                             <constraint firstAttribute="bottom" secondItem="pkn-0N-vA0" secondAttribute="bottom" id="CGU-OJ-j1m"/>
                                             <constraint firstItem="pkn-0N-vA0" firstAttribute="leading" secondItem="maH-PD-xaP" secondAttribute="leading" id="CwQ-oy-AgX"/>
+                                            <constraint firstAttribute="trailing" secondItem="PMl-0A-5P6" secondAttribute="trailing" id="EOV-WB-18S"/>
+                                            <constraint firstItem="VCE-vB-DIz" firstAttribute="top" secondItem="maH-PD-xaP" secondAttribute="top" id="FRJ-XQ-nsM"/>
                                             <constraint firstAttribute="trailing" secondItem="pkn-0N-vA0" secondAttribute="trailing" id="QP9-so-Lkl"/>
                                             <constraint firstItem="pkn-0N-vA0" firstAttribute="top" secondItem="maH-PD-xaP" secondAttribute="top" id="QWe-k7-sKv"/>
+                                            <constraint firstItem="PMl-0A-5P6" firstAttribute="top" secondItem="maH-PD-xaP" secondAttribute="top" id="aKS-4C-gV9"/>
+                                            <constraint firstItem="PMl-0A-5P6" firstAttribute="leading" secondItem="maH-PD-xaP" secondAttribute="leading" id="gVW-np-3Ea"/>
+                                            <constraint firstItem="VCE-vB-DIz" firstAttribute="leading" secondItem="maH-PD-xaP" secondAttribute="leading" id="iUt-Nu-ape"/>
+                                            <constraint firstAttribute="bottom" secondItem="PMl-0A-5P6" secondAttribute="bottom" id="xqC-ZW-Our"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="pkn-0N-vA0" id="VmQ-WN-KRg"/>
+                                            <outlet property="cardImage" destination="PMl-0A-5P6" id="vMn-LO-XGT"/>
+                                            <outlet property="markerImage" destination="VCE-vB-DIz" id="2bm-1n-aI3"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -331,33 +346,38 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIK-EH-OfF">
                                 <rect key="frame" x="0.0" y="418" width="320" height="150"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart 7" translatesAutoresizingMaskIntoConstraints="NO" id="PcR-p4-EZc">
-                                        <rect key="frame" x="193" y="0.0" width="107" height="150"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zho-JD-ldE">
+                                        <rect key="frame" x="236" y="71" width="64" height="79"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="107" id="Fgq-av-bcy"/>
-                                            <constraint firstAttribute="height" constant="150" id="H9U-ue-cHi"/>
-                                            <constraint firstAttribute="height" constant="70" id="Yam-GM-kMr"/>
-                                            <constraint firstAttribute="width" constant="50" id="tcj-BC-amB"/>
+                                            <constraint firstAttribute="width" constant="107" id="3LZ-zY-wPT"/>
+                                            <constraint firstAttribute="height" constant="150" id="FOG-8C-7Hy"/>
+                                            <constraint firstAttribute="height" constant="70" id="Ggr-dc-lXr"/>
+                                            <constraint firstAttribute="width" constant="50" id="KF8-xt-ms4"/>
                                         </constraints>
+                                        <state key="normal" backgroundImage="Back - Red">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="Yam-GM-kMr"/>
-                                                <exclude reference="tcj-BC-amB"/>
+                                                <exclude reference="Ggr-dc-lXr"/>
+                                                <exclude reference="KF8-xt-ms4"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="Yam-GM-kMr"/>
-                                                <include reference="tcj-BC-amB"/>
+                                                <include reference="Ggr-dc-lXr"/>
+                                                <include reference="KF8-xt-ms4"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=regular"/>
-                                    </imageView>
+                                        <connections>
+                                            <action selector="resumePlacingCards" destination="q5S-tQ-aJj" eventType="touchUpInside" id="57a-Pb-o1o"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="PcR-p4-EZc" secondAttribute="trailing" constant="20" id="ECh-zy-LIh"/>
-                                    <constraint firstAttribute="bottom" secondItem="PcR-p4-EZc" secondAttribute="bottom" id="UCb-jj-WEV"/>
+                                    <constraint firstAttribute="trailing" secondItem="zho-JD-ldE" secondAttribute="trailing" constant="20" id="HzT-uY-JJQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="zho-JD-ldE" secondAttribute="bottom" id="XAZ-Jf-ONO"/>
                                     <constraint firstAttribute="height" constant="150" id="ZUi-Ej-dko"/>
                                     <constraint firstAttribute="height" constant="70" id="vAw-Z2-dXa"/>
                                 </constraints>
@@ -391,7 +411,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="cardCollection" destination="bBw-dq-dKZ" id="p9e-wZ-IkV"/>
-                        <outlet property="nextCard" destination="PcR-p4-EZc" id="CP4-jK-T8z"/>
+                        <outlet property="nextCard" destination="zho-JD-ldE" id="64t-t9-v8M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JkT-Mo-GIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -400,12 +420,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Back - Red" width="64" height="79"/>
         <image name="Button - Start" width="192" height="60"/>
+        <image name="Card Spot" width="64" height="79"/>
         <image name="Club 12" width="64" height="79"/>
         <image name="Control - Restart" width="20" height="20"/>
         <image name="Control - Unmute" width="20" height="20"/>
         <image name="Heart 13" width="64" height="79"/>
-        <image name="Heart 7" width="64" height="79"/>
         <image name="Logo" width="516" height="620"/>
     </resources>
     <inferredMetricsTieBreakers>

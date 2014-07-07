@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B90055641969A5CE009AD1B6 /* CardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90055631969A5CE009AD1B6 /* CardHelper.swift */; };
+		B90055661969A5F6009AD1B6 /* UIImage+tintedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90055651969A5F6009AD1B6 /* UIImage+tintedImage.swift */; };
+		B90055691969EE47009AD1B6 /* GameViewController+collectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90055681969EE47009AD1B6 /* GameViewController+collectionViewDataSource.swift */; };
+		B900556B1969EE92009AD1B6 /* CardSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900556A1969EE92009AD1B6 /* CardSpotCell.swift */; };
+		B900556D1969EEC9009AD1B6 /* GameViewController+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900556C1969EEC9009AD1B6 /* GameViewController+UIView.swift */; };
 		B92BAE8B193EA93A001D3093 /* GameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE8A193EA93A001D3093 /* GameModeViewController.swift */; };
 		B92BAE901947D29B001D3093 /* GameModeControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */; };
 		B92BAE921947D328001D3093 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE911947D328001D3093 /* Card.swift */; };
@@ -16,6 +21,7 @@
 		B98AA752193D535200779305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98AA750193D535200779305 /* Main.storyboard */; };
 		B98AA754193D535200779305 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98AA753193D535200779305 /* Images.xcassets */; };
 		B98AA760193D535200779305 /* Edge_SolitaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA75F193D535200779305 /* Edge_SolitaireTests.swift */; };
+		B9ABB6EE1968DDC500EC287E /* KingsInTheCornerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B90055631969A5CE009AD1B6 /* CardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardHelper.swift; sourceTree = "<group>"; };
+		B90055651969A5F6009AD1B6 /* UIImage+tintedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+tintedImage.swift"; sourceTree = "<group>"; };
+		B90055681969EE47009AD1B6 /* GameViewController+collectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+collectionViewDataSource.swift"; sourceTree = "<group>"; };
+		B900556A1969EE92009AD1B6 /* CardSpotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSpotCell.swift; sourceTree = "<group>"; };
+		B900556C1969EEC9009AD1B6 /* GameViewController+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewController+UIView.swift"; sourceTree = "<group>"; };
 		B92BAE8A193EA93A001D3093 /* GameModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModeViewController.swift; sourceTree = "<group>"; };
 		B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModeControllerProtocol.swift; sourceTree = "<group>"; };
 		B92BAE911947D328001D3093 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -42,6 +53,7 @@
 		B98AA759193D535200779305 /* Edge SolitaireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Edge SolitaireTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98AA75E193D535200779305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B98AA75F193D535200779305 /* Edge_SolitaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge_SolitaireTests.swift; sourceTree = "<group>"; };
+		B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingsInTheCornerMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +74,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B90055621969A5BF009AD1B6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B90055631969A5CE009AD1B6 /* CardHelper.swift */,
+				B90055651969A5F6009AD1B6 /* UIImage+tintedImage.swift */,
+				B900556A1969EE92009AD1B6 /* CardSpotCell.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		B90055671969A618009AD1B6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B98AA74E193D535200779305 /* LandingViewController.swift */,
+				B92BAE8A193EA93A001D3093 /* GameModeViewController.swift */,
+				B900556E1969EEE3009AD1B6 /* GameViewController */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B900556E1969EEE3009AD1B6 /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B92BAE951947DF95001D3093 /* GameViewController.swift */,
+				B90055681969EE47009AD1B6 /* GameViewController+collectionViewDataSource.swift */,
+				B900556C1969EEC9009AD1B6 /* GameViewController+UIView.swift */,
+			);
+			name = GameViewController;
+			sourceTree = "<group>";
+		};
 		B92BAE8E1947D285001D3093 /* Game Modes */ = {
 			isa = PBXGroup;
 			children = (
 				B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */,
+				B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */,
 			);
 			name = "Game Modes";
 			sourceTree = "<group>";
@@ -91,15 +134,14 @@
 		B98AA746193D535200779305 /* Edge Solitaire */ = {
 			isa = PBXGroup;
 			children = (
-				B92BAE8E1947D285001D3093 /* Game Modes */,
-				B98AA749193D535200779305 /* AppDelegate.swift */,
-				B98AA74E193D535200779305 /* LandingViewController.swift */,
-				B92BAE8A193EA93A001D3093 /* GameModeViewController.swift */,
-				B92BAE951947DF95001D3093 /* GameViewController.swift */,
-				B98AA750193D535200779305 /* Main.storyboard */,
 				B98AA753193D535200779305 /* Images.xcassets */,
-				B98AA747193D535200779305 /* Supporting Files */,
+				B98AA749193D535200779305 /* AppDelegate.swift */,
 				B92BAE911947D328001D3093 /* Card.swift */,
+				B90055671969A618009AD1B6 /* View Controllers */,
+				B92BAE8E1947D285001D3093 /* Game Modes */,
+				B90055621969A5BF009AD1B6 /* Helpers */,
+				B98AA750193D535200779305 /* Main.storyboard */,
+				B98AA747193D535200779305 /* Supporting Files */,
 			);
 			path = "Edge Solitaire";
 			sourceTree = "<group>";
@@ -229,9 +271,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B98AA74F193D535200779305 /* LandingViewController.swift in Sources */,
+				B900556B1969EE92009AD1B6 /* CardSpotCell.swift in Sources */,
+				B9ABB6EE1968DDC500EC287E /* KingsInTheCornerMode.swift in Sources */,
 				B92BAE8B193EA93A001D3093 /* GameModeViewController.swift in Sources */,
 				B92BAE921947D328001D3093 /* Card.swift in Sources */,
+				B90055691969EE47009AD1B6 /* GameViewController+collectionViewDataSource.swift in Sources */,
 				B92BAE901947D29B001D3093 /* GameModeControllerProtocol.swift in Sources */,
+				B900556D1969EEC9009AD1B6 /* GameViewController+UIView.swift in Sources */,
+				B90055641969A5CE009AD1B6 /* CardHelper.swift in Sources */,
+				B90055661969A5F6009AD1B6 /* UIImage+tintedImage.swift in Sources */,
 				B92BAE961947DF95001D3093 /* GameViewController.swift in Sources */,
 				B98AA74A193D535200779305 /* AppDelegate.swift in Sources */,
 			);
