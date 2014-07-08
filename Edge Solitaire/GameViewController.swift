@@ -160,12 +160,15 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	
 	@IBAction func resumePlacingCards()
 	{
-		self.boardState = BoardState.PlacingCards;
-		
-		self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
-		if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: deck[0]) == false
+		if self.boardState == BoardState.SummingToTen
 		{
-			print("Game over - can't place next card\n");
+			self.boardState = BoardState.PlacingCards;
+			
+			self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
+			if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: deck[0]) == false
+			{
+				print("Game over - can't place next card\n");
+			}
 		}
 	}
 }
