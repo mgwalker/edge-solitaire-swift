@@ -13,7 +13,6 @@ extension GameViewController
 	override func viewDidLoad()
 	{
 		self.setBackground();
-		deck = Card.newDeck();
 	}
 	
 	override func viewWillAppear(animated: Bool)

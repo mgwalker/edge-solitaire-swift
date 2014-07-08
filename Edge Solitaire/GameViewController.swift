@@ -18,7 +18,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		case PlacingCards, SummingToTen;
 	}
 	
-	var deck:[Card] = [];
+	var deck:[Card] = Card.newDeck(shuffle: true);
 	
 	var gameModeController:GameModeControllerProtocol?;
 	var boardState = BoardState.PlacingCards;
