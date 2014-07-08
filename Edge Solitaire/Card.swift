@@ -14,7 +14,7 @@ class Card
 	{
 		case Club = "♣", Diamond = "♦", Heart = "♥", Spade = "♠";
 		
-		static func all() -> Suit[]
+		static func all() -> [Suit]
 		{
 			return [
 				Suit.Club, Suit.Diamond, Suit.Heart, Suit.Spade
@@ -29,7 +29,7 @@ class Card
 		case Six, Seven, Eight, Nine;
 		case Ten, Jack, Queen, King;
 		
-		static func all() -> Rank[]
+		static func all() -> [Rank]
 		{
 			return [
 				Rank.Ace, Rank.Two, Rank.Three, Rank.Four,
@@ -49,9 +49,9 @@ class Card
 		self.rank = rank;
 	}
 	
-	class func newDeck() -> Card[]
+	class func newDeck() -> [Card]
 	{
-		var cards:Card[] = Card[]();
+		var cards:[Card] = [Card]();
 		for suit in Suit.all()
 		{
 			for rank in Rank.all()
@@ -65,9 +65,8 @@ class Card
 		return cards;
 	}
 	
-	class func shuffle(cards:Card[])
 	{
-		for i in 0..cards.count
+		for i in 0..<cards.count
 		{
 			let swap = Int(arc4random_uniform(52 - UInt32(i)));
 			var temp = cards[51 - i];

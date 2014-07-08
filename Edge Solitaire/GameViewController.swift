@@ -18,7 +18,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		case PlacingCards, SummingToTen;
 	}
 	
-	var deck:Card[] = [];
+	var deck:[Card] = [];
 	
 	var gameModeController:GameModeControllerProtocol?;
 	var boardState = BoardState.PlacingCards;
@@ -52,7 +52,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		static func removeCardSpot(cardSpot:CardSpotCell)
 		{
 			cardSpot.isSelected = false;
-			for i in 0..selectedCardSpots.count
+			for i in 0..<selectedCardSpots.count
 			{
 				if selectedCardSpots[i] == cardSpot
 				{
@@ -125,7 +125,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				deck.removeAtIndex(0);
 				var allSpotsCovered = true;
 				
-				cellLoop: for i in 0..16
+				cellLoop: for i in 0..<16
 				{
 					var indexPath = NSIndexPath(forRow: i, inSection: 0);
 					if let cell = self.cardCollection.cellForItemAtIndexPath(indexPath) as? CardSpotCell
