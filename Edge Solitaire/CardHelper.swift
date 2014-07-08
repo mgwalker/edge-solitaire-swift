@@ -8,8 +8,12 @@
 
 import UIKit
 
+// This will all get refactored.  It just provides
+// a way to get an image for a card.
 class CardHelper
 {
+	// Composites card blank, border, rank, and suit
+	// images together into a card image.
 	class func imageForCard(card:Card) -> UIImage
 	{
 		let suitColor = (card.suit == Card.Suit.Diamond || card.suit == Card.Suit.Heart ?
@@ -17,7 +21,6 @@ class CardHelper
 		
 		let blank = UIImage.tintedImage(named: "Card Blank", tint: UIColor.whiteColor());
 		let template = UIImage.tintedImage(named: "Card Template", tint:suitColor);
-		//let template = UIImage(named: "Card Template");
 		let suit = UIImage.tintedImage(named: "Suit - \(card.suit.toRaw())", tint:suitColor);
 		let rank = UIImage.tintedImage(named: "Rank - \(card.rank.toRaw())", tint:UIColor.whiteColor());
 		

@@ -14,6 +14,9 @@ class Card
 	{
 		case Club = "♣", Diamond = "♦", Heart = "♥", Spade = "♠";
 		
+		// It'd be neat if we could iterate over the possible values
+		// of an enum, but we can't, so we'll do this to get all of
+		// the possible values.
 		static func all() -> [Suit]
 		{
 			return [
@@ -29,6 +32,10 @@ class Card
 		case Six, Seven, Eight, Nine;
 		case Ten, Jack, Queen, King;
 		
+		// And again with the list of enum values.  This is actually
+		// not what you'd normally do, but doing this lets us have
+		// a loop over the values when building a deck (below)
+		// rather than explicitly referencing each value.
 		static func all() -> [Rank]
 		{
 			return [
@@ -40,16 +47,18 @@ class Card
 		}
 	}
 	
-	let suit:Suit;
-	let rank:Rank;
+	let suit:Suit;	// Card's suit and
+	let rank:Rank;	// rank.  Constants.
 	
 	init(suit:Suit, rank:Rank)
 	{
 		self.suit = suit;
 		self.rank = rank;
 	}
-	
-	class func newDeck() -> [Card]
+
+	// Convenience method to create a new deck of cards,
+	// optionally shuffled.
+	class func newDeck(shuffle shuffled:Bool = true) -> [Card]
 	{
 		var cards:[Card] = [Card]();
 		for suit in Suit.all()
@@ -60,11 +69,16 @@ class Card
 			}
 		}
 		
-		Card.shuffle(cards);
+		if shuffled
+		{
+			Card.shuffle(cards);
+		}
 
 		return cards;
 	}
 	
+	// Shuffle method.  Implementes Fisher-Yates algorithm.
+	class func shuffle(var cards:[Card])
 	{
 		for i in 0..<cards.count
 		{

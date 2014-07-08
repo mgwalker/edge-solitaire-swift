@@ -8,41 +8,59 @@
 
 import UIKit
 
+// Collection view cell representing a card spot
 class CardSpotCell:UICollectionViewCell
 {
-	@IBOutlet var imageView:UIImageView;
-
+	// Marker (i.e., the king, queen, and jack markers) and
+	// card images.
 	@IBOutlet var cardImage:UIImageView;
 	@IBOutlet var markerImage:UIImageView;
 	
-	var modeController:GameModeControllerProtocol?;
-	var index:Int = 0;
+	var modeController:GameModeControllerProtocol?;	// The game mode controller.
+	var index:Int = 0;								// Cell index in the container
+	
+	// Whether or not the cell is currently selected.
 	var isSelected:Bool = false
 	{
 		didSet
 		{
+			// When the cell switches to selected,
+			// setup the border.
 			if isSelected
 			{
 				self.layer.borderColor = UIColor.yellowColor().CGColor;
 				self.layer.cornerRadius = 10;
 				self.layer.borderWidth = 5;
 			}
+			// When the cell switches to unselected,
+			// remove the border.
 			else
 			{
 				self.layer.borderColor = UIColor.clearColor().CGColor;
 			}
 		}
 	}
+	
+	// The card attached to the cell.  Optional.
 	var card:Card?
 	{
 		didSet
 		{
+			// If a card is being added, set the card image.
 			if card
 			{
 				self.cardImage.image = CardHelper.imageForCard(card!);
 			}
+			// Otherwise, clear the card image.
+			else
+			{
+				self.cardImage.image = nil;
+			}
 		}
 	}
+	
+	// If there's a card attached to the cell, its summing
+	// value, as determined by the mode controller.
 	var value:Int
 	{
 		get
@@ -55,14 +73,19 @@ class CardSpotCell:UICollectionViewCell
 		}
 	}
 	
+	// Clear the currently attached card.
 	func clearCard()
 	{
 		UIView.animateWithDuration(0.15, animations:
 			{
+				// Fade the card image out.
 				()->Void in
 				self.cardImage.alpha = 0;
 			}, completion:
 			{
+				// And then clear it, reset the alpha, clear
+				// the cell's selection, and remove the card
+				// from the cell object.
 				(Bool)->Void in
 				self.cardImage.image = nil;
 				self.cardImage.alpha = 1;

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LandingViewController.swift
 //  Edge Solitaire
 //
 //  Created by Greg Walker on 6/2/14.
@@ -9,6 +9,9 @@
 import UIKit
 import QuartzCore
 
+// Add some functionality to all of our view controllers rather
+// than implementing it everywhere.  Cheers for extensions and
+// inheritance!  Goodbye, Objective-C!
 extension UIViewController
 {
 	func setBackground()
@@ -16,15 +19,24 @@ extension UIViewController
 		self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Felt - Green"));
 	}
 	
+	// And this one is really an override of the UIViewController
+	// base class, but apparently the override keyword doesn't
+	// work on extensions, so that's kind of weird.
 	func prefersStatusBarHidden() -> Bool
 	{
 		return true;
 	}
 }
 
+// The landing view is the very first one, which makes sense.
+// This view will probably go away because there's no point
+// stopping here.  There's nothing to see and nothing happens
+// until you touch the button...  so get rid of the button and
+// just do the thing.
 class LandingViewController: UIViewController {
                             
-	override func viewDidLoad() {
+	override func viewDidLoad()
+	{
 		super.viewDidLoad()
 		
 		self.navigationController.navigationBarHidden = true;
