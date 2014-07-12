@@ -14,44 +14,84 @@ class PopupView:UIView
 	@IBOutlet var topButton:UIButton?
 	@IBOutlet var bottomButton:UIButton?
 	
+	var restartGameCallback:((PopupView?)->())?;
+	var quitGameCallback:((PopupView?)->())?;
+	
 	enum PopupType:String
 	{
 		case Win = "Popup - Win";
+		case CannotPlace = "Popup - Cannot Place";
+		case CannotRemove = "Popup - Cannot Remove";
+		case Restart = "Popup - Restart";
+	}
+	
+	func close()
+	{
+		let blur = self.superview.superview;
+		UIView.animateWithDuration(0.4, animations:
+			{
+				() -> () in
+				blur.alpha = 0.0;
+				self.transform = CGAffineTransformMakeScale(0, 0);
+			}, completion:
+			{
+				(Bool) -> () in
+				blur.removeFromSuperview();
+			});
 	}
 
-	class func showPopup(#type:PopupType, onView container:UIView)
+	class func showPopup(#type:PopupType, onView container:UIView) -> PopupView
 	{
 		let popupBlur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark));
 		popupBlur.frame = container.frame;
-		container.addSubview(popupBlur);
 		
 		let popup = NSBundle.mainBundle().loadNibNamed("PopupView", owner: nil, options: nil)[0] as PopupView;
 		popup.center = popupBlur.center;
 		popupBlur.contentView.addSubview(popup);
 		
+		if let imageView = popup.popupImage
+		{
+			imageView.image = UIImage(named: type.toRaw());
+		}
+		
 		switch type
 		{
-			case PopupView.PopupType.Win:
-				if let imageView = popup.popupImage
-				{
-					imageView.image = UIImage(named: "Popup - Cannot Remove");
-				}
-				popup.topButton?.addTarget(popup, action: "restartGame", forControlEvents: UIControlEvents.TouchUpInside);
-				popup.bottomButton?.addTarget(popup, action: "quitGame", forControlEvents: UIControlEvents.TouchUpInside);
+			case PopupView.PopupType.Restart:
+				popup.topButton?.setImage(UIImage(named: "Button - Restart"), forState: UIControlState.Normal);
+				popup.bottomButton?.setImage(UIImage(named: "Button - Menu"), forState: UIControlState.Normal);
 				break;
 			
 			default:
 				break;
 		}
+		
+		popupBlur.alpha = 0;
+		popup.transform = CGAffineTransformMakeScale(0, 0);
+		container.addSubview(popupBlur);
+
+		UIView.animateWithDuration(0.7, animations:
+			{
+				() -> () in
+				popupBlur.alpha = 1.0;
+				popup.transform = CGAffineTransformMakeScale(1.0, 1.0);
+			});
+		
+		return popup;
 	}
 	
 	@IBAction func restartGame()
 	{
-		print("Restart game");
+		if let fn = self.restartGameCallback
+		{
+			fn(self);
+		}
 	}
 	
 	@IBAction func quitGame()
 	{
-		print("Quit game");
+		if let fn = self.quitGameCallback
+		{
+			fn(self);
+		}
 	}
 }

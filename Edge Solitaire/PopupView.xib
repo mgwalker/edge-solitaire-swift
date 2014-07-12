@@ -18,6 +18,9 @@
                             <state key="normal" image="Button - Play Again">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="restartGame" destination="iN0-l3-epB" eventType="touchUpInside" id="geJ-3Q-EfI"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Popup - Win" translatesAutoresizingMaskIntoConstraints="NO" id="b0e-y8-666" userLabel="Popup Image">
                             <rect key="frame" x="0.0" y="0.0" width="242" height="223"/>
@@ -27,6 +30,9 @@
                             <state key="normal" image="Button - Quit">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="quitGame" destination="iN0-l3-epB" eventType="touchUpInside" id="asQ-bU-foX"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

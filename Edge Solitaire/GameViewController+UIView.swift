@@ -19,7 +19,7 @@ extension GameViewController
 	override func viewWillAppear(animated: Bool)
 	{
 		super.viewWillAppear(animated);
-		self.startNewGame();
+		self.startNewGame(nil);
 	}
 	
 	// We don't know what size the collection view will be until

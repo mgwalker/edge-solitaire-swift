@@ -138,8 +138,8 @@
 		B98AA746193D535200779305 /* Edge Solitaire */ = {
 			isa = PBXGroup;
 			children = (
-				B9E5C65C1970BC090044DB75 /* Views */,
 				B98AA753193D535200779305 /* Images.xcassets */,
+				B9E5C65C1970BC090044DB75 /* Views */,
 				B98AA749193D535200779305 /* AppDelegate.swift */,
 				B92BAE911947D328001D3093 /* Card.swift */,
 				B90055671969A618009AD1B6 /* View Controllers */,

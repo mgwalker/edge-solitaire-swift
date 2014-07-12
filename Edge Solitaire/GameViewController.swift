@@ -176,6 +176,9 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				// you know, stop here.
 				if self.gameModeController?.gameIsWon(self.cardCollection) == true
 				{
+					let popup = PopupView.showPopup(type: PopupView.PopupType.Win, onView: self.view);
+					popup.restartGameCallback = self.startNewGame;
+					popup.quitGameCallback = self.quitToMenu;
 					print("Game over - you won!\n");
 					return;
 				}
@@ -211,6 +214,9 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					// it can't, then game over, sucka.
 					if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: deck[0]) == false
 					{
+						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
+						popup.restartGameCallback = self.startNewGame;
+						popup.quitGameCallback = self.quitToMenu;
 						print("Game over - can't place next card\n");
 					}
 				}
@@ -240,13 +246,18 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 			// card somewhere.  If we can't, the game is over.
 			if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: deck[0]) == false
 			{
+				let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
+				popup.restartGameCallback = self.startNewGame;
+				popup.quitGameCallback = self.quitToMenu;
 				print("Game over - can't place next card\n");
 			}
 		}
 	}
 	
-	func startNewGame()
+	func startNewGame(popup: PopupView?)
 	{
+		popup?.close();
+		
 		self.deck = Card.newDeck(shuffle: true);
 		self.boardState = BoardState.PlacingCards;
 		
@@ -262,5 +273,11 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				}
 			}
 		}
+	}
+	
+	func quitToMenu(popup: PopupView?)
+	{
+		popup?.close();
+		print("Quit to menu\n");
 	}
 }
