@@ -16,11 +16,17 @@ class CardHelper
 	// images together into a card image.
 	class func imageForCard(card:Card) -> UIImage
 	{
-		let suitColor = (card.suit == Card.Suit.Diamond || card.suit == Card.Suit.Heart ?
-			UIColor(red: 0.75, green: 0, blue: 0, alpha: 1.0) : UIColor.blackColor());
+		var suitColor = UIColor.blackColor();
+		var templateColor = UIColor.blackColor();
+		
+		if card.suit == Card.Suit.Diamond || card.suit == Card.Suit.Heart
+		{
+			suitColor = UIColor(red: 0.85, green: 0, blue: 0, alpha: 1.0);
+			templateColor = UIColor(red: 0.4, green: 0, blue: 0, alpha: 1.0);
+		}
 		
 		let blank = UIImage.tintedImage(named: "Card Blank", tint: UIColor.whiteColor());
-		let template = UIImage.tintedImage(named: "Card Template", tint:suitColor);
+		let template = UIImage.tintedImage(named: "Card Template", tint:templateColor);
 		let suit = UIImage.tintedImage(named: "Suit - \(card.suit.toRaw())", tint:suitColor);
 		let rank = UIImage.tintedImage(named: "Rank - \(card.rank.toRaw())", tint:UIColor.whiteColor());
 		
