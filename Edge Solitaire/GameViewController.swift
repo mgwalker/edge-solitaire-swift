@@ -159,14 +159,25 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				// Remove the card off the top of the deck.  It's
 				// now on the board.  And update the next card
 				// button to the next card.
-				deck.removeAtIndex(0);
-				self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
+				if deck.count > 0
+				{
+					deck.removeAtIndex(0);
+					if deck.count > 0
+					{
+						self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
+					}
+					else
+					{
+						self.nextCard.setBackgroundImage(nil, forState: UIControlState.Normal);
+					}
+				}
 
 				// Check if the player already won.  If they did, then,
 				// you know, stop here.
 				if self.gameModeController?.gameIsWon(self.cardCollection) == true
 				{
 					print("Game over - you won!\n");
+					return;
 				}
 
 				// Assume all the card spots are covered...
