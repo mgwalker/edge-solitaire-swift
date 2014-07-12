@@ -22,6 +22,8 @@
 		B98AA754193D535200779305 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98AA753193D535200779305 /* Images.xcassets */; };
 		B98AA760193D535200779305 /* Edge_SolitaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA75F193D535200779305 /* Edge_SolitaireTests.swift */; };
 		B9ABB6EE1968DDC500EC287E /* KingsInTheCornerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */; };
+		B9E5C65F1970BC3F0044DB75 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E5C65E1970BC3F0044DB75 /* PopupView.xib */; };
+		B9E5C6611970C0AE0044DB75 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5C6601970C0AE0044DB75 /* PopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		B98AA75E193D535200779305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B98AA75F193D535200779305 /* Edge_SolitaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge_SolitaireTests.swift; sourceTree = "<group>"; };
 		B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingsInTheCornerMode.swift; sourceTree = "<group>"; };
+		B9E5C65E1970BC3F0044DB75 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
+		B9E5C6601970C0AE0044DB75 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 		B98AA746193D535200779305 /* Edge Solitaire */ = {
 			isa = PBXGroup;
 			children = (
+				B9E5C65C1970BC090044DB75 /* Views */,
 				B98AA753193D535200779305 /* Images.xcassets */,
 				B98AA749193D535200779305 /* AppDelegate.swift */,
 				B92BAE911947D328001D3093 /* Card.swift */,
@@ -169,6 +174,23 @@
 				B98AA75E193D535200779305 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9E5C65C1970BC090044DB75 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B9E5C65D1970BC0F0044DB75 /* Popups */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B9E5C65D1970BC0F0044DB75 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				B9E5C65E1970BC3F0044DB75 /* PopupView.xib */,
+				B9E5C6601970C0AE0044DB75 /* PopupView.swift */,
+			);
+			name = Popups;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9E5C65F1970BC3F0044DB75 /* PopupView.xib in Resources */,
 				B98AA752193D535200779305 /* Main.storyboard in Resources */,
 				B98AA754193D535200779305 /* Images.xcassets in Resources */,
 			);
@@ -282,6 +305,7 @@
 				B90055661969A5F6009AD1B6 /* UIImage+tintedImage.swift in Sources */,
 				B92BAE961947DF95001D3093 /* GameViewController.swift in Sources */,
 				B98AA74A193D535200779305 /* AppDelegate.swift in Sources */,
+				B9E5C6611970C0AE0044DB75 /* PopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
