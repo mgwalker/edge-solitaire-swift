@@ -71,14 +71,14 @@ class Card
 		
 		if shuffled
 		{
-			Card.shuffle(cards);
+			cards = Card.shuffle(cards);
 		}
 
 		return cards;
 	}
 	
 	// Shuffle method.  Implementes Fisher-Yates algorithm.
-	class func shuffle(var cards:[Card])
+	class func shuffle(var cards:[Card]) -> [Card]
 	{
 		for i in 0..<cards.count
 		{
@@ -87,5 +87,7 @@ class Card
 			cards[51 - i] = cards[swap];
 			cards[swap] = temp;
 		}
+		
+		return cards;
 	}
 }
