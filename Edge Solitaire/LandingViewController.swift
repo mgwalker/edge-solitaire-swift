@@ -41,28 +41,6 @@ class LandingViewController: UIViewController
 		
 		self.navigationController.navigationBarHidden = true;
 		self.setBackground();
-		
-		/*
-		var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark);
-		var blurView = UIVisualEffectView(effect: blurEffect);
-		blurView.frame = self.view.frame;
-		
-		if let win = self.win
-		{
-			//blurView.contentView.addSubview(win);
-			//win.removeFromSuperview();
-			//self.view.addSubview(win);
-		}
-		self.view.addSubview(blurView);
-		self.view.bringSubviewToFront(self.win);
-*/
-		PopupView.showPopup(type: PopupView.PopupType.Win, onView: self.view);
-		
-		/*
-		let popup = PopupView(type: PopupView.PopupType.Win);
-		popup.frame = self.view.frame;
-		self.view.addSubview(popup);
-		*/
 	}
 }
 
