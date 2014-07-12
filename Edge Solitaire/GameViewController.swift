@@ -20,7 +20,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	}
 	
 	// The deck for the board
-	var deck:[Card] = Card.newDeck(shuffle: true);
+	var deck:[Card] = [ ];
 	
 	// Mode controller and current board state
 	var gameModeController:GameModeControllerProtocol?;
@@ -230,6 +230,25 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 			if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: deck[0]) == false
 			{
 				print("Game over - can't place next card\n");
+			}
+		}
+	}
+	
+	func startNewGame()
+	{
+		self.deck = Card.newDeck(shuffle: true);
+		self.boardState = BoardState.PlacingCards;
+		
+		self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
+		
+		if self.cardCollection.numberOfSections() == 1 && self.cardCollection.numberOfItemsInSection(0) == 16
+		{
+			for item in 0..<16
+			{
+				if let cardSpot = self.cardCollection.cellForItemAtIndexPath(NSIndexPath(forRow: item, inSection: 0)) as? CardSpotCell
+				{
+					cardSpot.clearCard();
+				}
 			}
 		}
 	}

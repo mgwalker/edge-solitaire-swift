@@ -19,7 +19,7 @@ extension GameViewController
 	override func viewWillAppear(animated: Bool)
 	{
 		super.viewWillAppear(animated);
-		self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
+		self.startNewGame();
 	}
 	
 	// We don't know what size the collection view will be until
