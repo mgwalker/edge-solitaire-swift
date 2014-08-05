@@ -65,7 +65,7 @@ class Card
 		{
 			for rank in Rank.all()
 			{
-				cards += Card(suit:suit, rank:rank);
+				cards += [ Card(suit:suit, rank:rank) ];
 			}
 		}
 		

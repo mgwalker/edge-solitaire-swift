@@ -54,7 +54,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		{
 			// Set its selection, add it to the list
 			cardSpot.isSelected = true;
-			selectedCardSpots += cardSpot;
+			selectedCardSpots += [ cardSpot ];
 			
 			// If our selection sums to ten, clear
 			// the selection.
