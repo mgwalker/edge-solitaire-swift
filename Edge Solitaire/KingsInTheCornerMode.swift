@@ -77,7 +77,7 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 			let (emptyKingSpot, _) = self.checkKingSpots(cardCollection, checkFn:
 				{
 					(cardOnSpot: Card?) -> Bool in
-					return (!cardOnSpot);
+					return (cardOnSpot == nil);
 				});
 			return emptyKingSpot;
 		}

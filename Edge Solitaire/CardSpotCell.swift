@@ -47,7 +47,7 @@ class CardSpotCell:UICollectionViewCell
 		didSet
 		{
 			// If a card is being added, set the card image.
-			if card
+			if card != nil
 			{
 				self.cardImage.image = CardHelper.imageForCard(card!);
 			}
@@ -65,7 +65,7 @@ class CardSpotCell:UICollectionViewCell
 	{
 		get
 		{
-			if self.card && self.modeController
+			if self.card != nil && self.modeController != nil
 			{
 				return self.modeController!.valueOfCard(self.card!);
 			}

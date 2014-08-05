@@ -108,7 +108,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath:NSIndexPath)
 	{
 		// Make sure we have a mode controller.
-		if !self.gameModeController
+		if self.gameModeController == nil
 		{
 			return;
 		}
@@ -122,7 +122,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				case .PlacingCards:
 					// Make sure there's not a card on the cell and that the
 					// top card on the deck can be placed on the cell.
-					if !cell.card && self.gameModeController!.canPlaceCardOnSpot(cell, card: deck[0])
+					if cell.card == nil && self.gameModeController!.canPlaceCardOnSpot(cell, card: deck[0])
 					{
 						// Set the card and advance the game.
 						cell.card = deck[0];
@@ -130,7 +130,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					}
 				case .SummingToTen:
 					// Make sure the cell has a card and it can be selected.
-					if cell.card && self.gameModeController!.canSelectCard(cell.card!)
+					if cell.card != nil && self.gameModeController!.canSelectCard(cell.card!)
 					{
 						// If it's already selected, remove it from the
 						// selection group...
@@ -192,7 +192,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					{
 						// If any cell is lacking a card, then we know all
 						// spots are not yet covered and we can bail out.
-						if !cell.card
+						if cell.card == nil
 						{
 							allSpotsCovered = false;
 							break cellLoop;
