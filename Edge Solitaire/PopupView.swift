@@ -10,9 +10,9 @@ import UIKit
 
 class PopupView:UIView
 {
-	@IBOutlet var popupImage:UIImageView?
-	@IBOutlet var topButton:UIButton?
-	@IBOutlet var bottomButton:UIButton?
+	@IBOutlet var popupImage:UIImageView!
+	@IBOutlet var topButton:UIButton!
+	@IBOutlet var bottomButton:UIButton!
 	
 	var restartGameCallback:((PopupView?)->())?;
 	var quitGameCallback:((PopupView?)->())?;

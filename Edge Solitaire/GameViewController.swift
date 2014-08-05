@@ -10,8 +10,8 @@ import UIKit
 
 class GameViewController:UIViewController,UICollectionViewDataSource,UICollectionViewDelegate
 {
-	@IBOutlet var cardCollection:UICollectionView;	// Card collection view
-	@IBOutlet var nextCard:UIButton;				// "Next card" button
+	@IBOutlet var cardCollection:UICollectionView!;	// Card collection view
+	@IBOutlet var nextCard:UIButton!;				// "Next card" button
 	
 	// Possible board states
 	enum BoardState

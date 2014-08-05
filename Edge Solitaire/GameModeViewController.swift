@@ -12,11 +12,11 @@ import UIKit
 class GameModeViewController:UITableViewController
 {
 	// Description text and cell for the different game modes.
-	@IBOutlet var kingsInTheCornerDescription:UILabel;
-	@IBOutlet var kingsInTheCornerCell:UITableViewCell;
+	@IBOutlet var kingsInTheCornerDescription:UILabel!;
+	@IBOutlet var kingsInTheCornerCell:UITableViewCell!;
 	
-	@IBOutlet var royalsOnEdgeDescription:UILabel;
-	@IBOutlet var royalsOnEdgeCell:UITableViewCell;
+	@IBOutlet var royalsOnEdgeDescription:UILabel!;
+	@IBOutlet var royalsOnEdgeCell:UITableViewCell!;
 	
 	override func viewDidLoad()
 	{

@@ -13,8 +13,8 @@ class CardSpotCell:UICollectionViewCell
 {
 	// Marker (i.e., the king, queen, and jack markers) and
 	// card images.
-	@IBOutlet var cardImage:UIImageView;
-	@IBOutlet var markerImage:UIImageView;
+	@IBOutlet var cardImage:UIImageView!;
+	@IBOutlet var markerImage:UIImageView!;
 	
 	var modeController:GameModeControllerProtocol?;	// The game mode controller.
 	var index:Int = 0;								// Cell index in the container
