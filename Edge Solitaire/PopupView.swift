@@ -27,16 +27,16 @@ class PopupView:UIView
 	
 	func close()
 	{
-		let blur = self.superview.superview;
+		let blur = self.superview?.superview;
 		UIView.animateWithDuration(0.4, animations:
 			{
 				() -> () in
-				blur.alpha = 0.0;
+				blur?.alpha = 0.0;
 				self.transform = CGAffineTransformMakeScale(0, 0);
 			}, completion:
 			{
 				(Bool) -> () in
-				blur.removeFromSuperview();
+				blur?.removeFromSuperview();
 			});
 	}
 
