@@ -81,6 +81,7 @@ class CardSpotCell:UICollectionViewCell
 				// Fade the card image out.
 				()->Void in
 				self.cardImage.alpha = 0;
+				return;
 			}, completion:
 			{
 				// And then clear it, reset the alpha, clear
@@ -91,6 +92,7 @@ class CardSpotCell:UICollectionViewCell
 				self.cardImage.alpha = 1;
 				self.isSelected = false;
 				self.card = nil;
+				return;
 			}
 		);
 	}

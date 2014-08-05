@@ -33,10 +33,12 @@ class PopupView:UIView
 				() -> () in
 				blur?.alpha = 0.0;
 				self.transform = CGAffineTransformMakeScale(0, 0);
+				return;
 			}, completion:
 			{
 				(Bool) -> () in
 				blur?.removeFromSuperview();
+				return;
 			});
 	}
 
