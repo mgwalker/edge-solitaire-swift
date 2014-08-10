@@ -31,8 +31,13 @@ protocol GameModeControllerProtocol
 	// Indicates whether a card may be selected.
 	func canSelectCard(card:Card) -> Bool;
 	
-	// Indicates the summation value of a card.
-	func valueOfCard(card:Card) -> Int;
+	// Determines whether or not any cards may be cleared from
+	// the particular board.
+	func canClearCardsFromBoard(cardCollection:UICollectionView) -> Bool;
+	
+	// Determines whether a particular selection of cards can
+	// be removed.
+	func canClearSelectedCards(cards:[Card]) -> Bool;
 	
 	// Indicates whether the game is won based on a given
 	// card cell collection.

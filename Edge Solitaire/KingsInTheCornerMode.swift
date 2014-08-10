@@ -106,21 +106,26 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 		return (card.rank != Card.Rank.King);
 	}
 	
-	func valueOfCard(card: Card) -> Int
+	func canClearCardsFromBoard(cardCollection: UICollectionView) -> Bool
 	{
-		switch card.rank
+		return true;
+	}
+	
+	func canClearSelectedCards(cards: [Card]) -> Bool
+	{
+		var sum = 0;
+		for card in cards
 		{
-			case Card.Rank.Ace, Card.Rank.Two, Card.Rank.Three, Card.Rank.Four,
-			Card.Rank.Five, Card.Rank.Six, Card.Rank.Seven, Card.Rank.Eight, Card.Rank.Nine:
-				return card.rank.toRaw();
-
-			// Jacks and queens are worth 10 in this mode.
-			case Card.Rank.Ten, Card.Rank.Jack, Card.Rank.Queen:
-				return 10;
-			
-			default:
-				return 0;
+			switch card.rank
+			{
+				case .Ten, .Jack, .Queen:
+					sum += 10;
+				default:
+					sum += card.rank.toRaw();
+			}
 		}
+		
+		return (sum == 10);
 	}
 	
 	func gameIsWon(cardCollection: UICollectionView) -> Bool

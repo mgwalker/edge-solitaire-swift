@@ -16,7 +16,6 @@ class CardSpotCell:UICollectionViewCell
 	@IBOutlet var cardImage:UIImageView!;
 	@IBOutlet var markerImage:UIImageView!;
 	
-	var modeController:GameModeControllerProtocol?;	// The game mode controller.
 	var index:Int = 0;								// Cell index in the container
 	
 	// Whether or not the cell is currently selected.
@@ -56,20 +55,6 @@ class CardSpotCell:UICollectionViewCell
 			{
 				self.cardImage.image = nil;
 			}
-		}
-	}
-	
-	// If there's a card attached to the cell, its summing
-	// value, as determined by the mode controller.
-	var value:Int
-	{
-		get
-		{
-			if self.card != nil && self.modeController != nil
-			{
-				return self.modeController!.valueOfCard(self.card!);
-			}
-			return 0;
 		}
 	}
 	

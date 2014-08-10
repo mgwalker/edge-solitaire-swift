@@ -32,7 +32,6 @@ extension GameViewController
 		{
 			// Set it up.  Index and mode controller.
 			cell.index = indexPath.row;
-			cell.modeController = self.gameModeController;
 			
 			// Ask the mode controller to set the marker.
 			self.gameModeController?.setMarkerImage(cell);

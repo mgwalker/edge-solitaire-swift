@@ -26,26 +26,27 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	var gameModeController:GameModeControllerProtocol?;
 	var boardState = BoardState.PlacingCards;
 	
-	// Structure for keeping up with selected cards,
-	// keeping a running sum, and clearing the cards
-	// when they sum to ten.
+	// Structure for keeping up with selected cards
+	// and clearing the cards when the controller
+	// says we should.
 	struct CardCellSelectionGroup
 	{
 		// The list of selected card spots
 		static var selectedCardSpots:Array<CardSpotCell> = [ ];
-		
-		// The sum of the values of all the
-		// selected cards.
-		static var selectionSumValue:Int
+
+		static var selectedCards:[Card]
 		{
 			get
 			{
-				var sum:Int = 0;
-				for cardSpot in selectedCardSpots
+				var cards = [Card]();
+				for spot in selectedCardSpots
 				{
-					sum += cardSpot.value;
+					if spot.card != nil
+					{
+						cards += [spot.card!]
+					}
 				}
-				return sum;
+				return cards;
 			}
 		}
 		
@@ -55,13 +56,6 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 			// Set its selection, add it to the list
 			cardSpot.isSelected = true;
 			selectedCardSpots += [ cardSpot ];
-			
-			// If our selection sums to ten, clear
-			// the selection.
-			if self.selectionSumValue == 10
-			{
-				self.clearSelection();
-			}
 		}
 		
 		static func removeCardSpot(cardSpot:CardSpotCell)
@@ -70,7 +64,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 			// of whether or not it's currently selected.
 			// Just a nice safety feature.
 			cardSpot.isSelected = false;
-			
+
 			// Now loop over the selection...
 			for i in 0..<selectedCardSpots.count
 			{
@@ -81,13 +75,6 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					selectedCardSpots.removeAtIndex(i);
 					break;
 				}
-			}
-			
-			// If our selection sums to ten, clear
-			// the selection.
-			if self.selectionSumValue == 10
-			{
-				self.clearSelection();
 			}
 		}
 		
@@ -103,6 +90,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 			// And then empty the list.
 			selectedCardSpots = [ ];
 		}
+
 	}
 	
 	func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath:NSIndexPath)
@@ -137,11 +125,19 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						if cell.isSelected
 						{
 							CardCellSelectionGroup.removeCardSpot(cell);
+							if self.gameModeController!.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
+							{
+								CardCellSelectionGroup.clearSelection();
+							}
 						}
 						// ...otherwise, add it to the selection group.
 						else
 						{
 							CardCellSelectionGroup.addCardSpot(cell);
+							if self.gameModeController!.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
+							{
+								CardCellSelectionGroup.clearSelection();
+							}
 						}
 					}
 					break;
@@ -179,7 +175,6 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					let popup = PopupView.showPopup(type: PopupView.PopupType.Win, onView: self.view);
 					popup.restartGameCallback = self.startNewGame;
 					popup.quitGameCallback = self.quitToMenu;
-					print("Game over - you won!\n");
 					return;
 				}
 
@@ -203,10 +198,22 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				// If all the spots are covered...
 				if allSpotsCovered
 				{
-					// ...switch to summing mode and set the next card button
-					// to the card back image.
-					self.nextCard.setBackgroundImage(UIImage(named: "Back - Red"), forState: UIControlState.Normal);
-					self.boardState = BoardState.ClearingCards;
+					// ...and some combination of cards can be cleared...
+					if self.gameModeController!.canClearCardsFromBoard(self.cardCollection)
+					{
+						// ...switch to summing mode and set the next card button
+						// to the card back image.
+						self.boardState = BoardState.ClearingCards;
+						self.nextCard.setBackgroundImage(UIImage(named: "Back - Red"), forState: UIControlState.Normal);
+					}
+					else
+					{
+						// ...or else all spots are covered but nothing can be removed,
+						// so the game is over.  Alas.
+						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotRemove, onView: self.view);
+						popup.restartGameCallback = self.startNewGame;
+						popup.quitGameCallback = self.quitToMenu;
+					}
 				}
 				else
 				{
@@ -217,7 +224,6 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
 						popup.restartGameCallback = self.startNewGame;
 						popup.quitGameCallback = self.quitToMenu;
-						print("Game over - can't place next card\n");
 					}
 				}
 			
@@ -249,7 +255,6 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
 				popup.restartGameCallback = self.startNewGame;
 				popup.quitGameCallback = self.quitToMenu;
-				print("Game over - can't place next card\n");
 			}
 		}
 	}
