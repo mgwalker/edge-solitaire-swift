@@ -17,6 +17,8 @@ class PopupView:UIView
 	var restartGameCallback:((PopupView?)->())?;
 	var quitGameCallback:((PopupView?)->())?;
 	
+	let animationDuration = 0.4;
+	
 	enum PopupType:String
 	{
 		case Win = "Popup - Win";
@@ -28,7 +30,7 @@ class PopupView:UIView
 	func close()
 	{
 		let blur = self.superview?.superview;
-		UIView.animateWithDuration(0.4, animations:
+		UIView.animateWithDuration(animationDuration, animations:
 			{
 				() -> () in
 				blur?.alpha = 0.0;
@@ -70,8 +72,8 @@ class PopupView:UIView
 		popupBlur.alpha = 0;
 		popup.transform = CGAffineTransformMakeScale(0, 0);
 		container.addSubview(popupBlur);
-
-		UIView.animateWithDuration(0.7, animations:
+		
+		UIView.animateWithDuration(popup.animationDuration, animations:
 			{
 				() -> () in
 				popupBlur.alpha = 1.0;
