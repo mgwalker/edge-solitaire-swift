@@ -16,7 +16,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	// Possible board states
 	enum BoardState
 	{
-		case PlacingCards, SummingToTen;
+		case PlacingCards, ClearingCards;
 	}
 	
 	// The deck for the board
@@ -128,7 +128,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						cell.card = deck[0];
 						self.advanceGame();
 					}
-				case .SummingToTen:
+				case .ClearingCards:
 					// Make sure the cell has a card and it can be selected.
 					if cell.card != nil && self.gameModeController!.canSelectCard(cell.card!)
 					{
@@ -205,8 +205,8 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				{
 					// ...switch to summing mode and set the next card button
 					// to the card back image.
-					self.boardState = BoardState.SummingToTen;
 					self.nextCard.setBackgroundImage(UIImage(named: "Back - Red"), forState: UIControlState.Normal);
+					self.boardState = BoardState.ClearingCards;
 				}
 				else
 				{
@@ -222,7 +222,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				}
 			
 			// There's not really an advancement if we're in
-			// summing mode, and if there end up being other
+			// clearing mode, and if there end up being other
 			// modes, we'll just happily do nothing until
 			// we figure out what should happen in that mode.
 			default:
@@ -233,8 +233,8 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	// Action for the next card button
 	@IBAction func resumePlacingCards()
 	{
-		// Make sure we're in summing mode
-		if self.boardState == BoardState.SummingToTen
+		// Make sure we're in clearing mode
+		if self.boardState == BoardState.ClearingCards
 		{
 			// Change the board state to "placing"
 			self.boardState = BoardState.PlacingCards;
