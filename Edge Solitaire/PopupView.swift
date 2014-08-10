@@ -61,8 +61,8 @@ class PopupView:UIView
 		switch type
 		{
 			case PopupView.PopupType.Restart:
-				popup.topButton?.setImage(UIImage(named: "Button - Restart"), forState: UIControlState.Normal);
-				popup.bottomButton?.setImage(UIImage(named: "Button - Menu"), forState: UIControlState.Normal);
+				popup.topButton.setImage(UIImage(named: "Button - Restart"), forState: UIControlState.Normal);
+				popup.bottomButton.setImage(UIImage(named: "Button - Menu"), forState: UIControlState.Normal);
 				break;
 			
 			default:
