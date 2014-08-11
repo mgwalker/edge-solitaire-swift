@@ -21,6 +21,7 @@
 		B98AA752193D535200779305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98AA750193D535200779305 /* Main.storyboard */; };
 		B98AA754193D535200779305 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98AA753193D535200779305 /* Images.xcassets */; };
 		B98AA760193D535200779305 /* Edge_SolitaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA75F193D535200779305 /* Edge_SolitaireTests.swift */; };
+		B99A8E90199857FC00A903D2 /* SumToTenChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A8E8F199857FC00A903D2 /* SumToTenChecker.swift */; };
 		B9ABB6EE1968DDC500EC287E /* KingsInTheCornerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */; };
 		B9E5C65F1970BC3F0044DB75 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E5C65E1970BC3F0044DB75 /* PopupView.xib */; };
 		B9E5C6611970C0AE0044DB75 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5C6601970C0AE0044DB75 /* PopupView.swift */; };
@@ -55,6 +56,7 @@
 		B98AA759193D535200779305 /* Edge SolitaireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Edge SolitaireTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98AA75E193D535200779305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B98AA75F193D535200779305 /* Edge_SolitaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge_SolitaireTests.swift; sourceTree = "<group>"; };
+		B99A8E8F199857FC00A903D2 /* SumToTenChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumToTenChecker.swift; sourceTree = "<group>"; };
 		B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingsInTheCornerMode.swift; sourceTree = "<group>"; };
 		B9E5C65E1970BC3F0044DB75 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		B9E5C6601970C0AE0044DB75 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */,
 				B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */,
+				B99A8E8F199857FC00A903D2 /* SumToTenChecker.swift */,
 			);
 			name = "Game Modes";
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				B90055691969EE47009AD1B6 /* GameViewController+collectionViewDataSource.swift in Sources */,
 				B92BAE901947D29B001D3093 /* GameModeControllerProtocol.swift in Sources */,
 				B900556D1969EEC9009AD1B6 /* GameViewController+UIView.swift in Sources */,
+				B99A8E90199857FC00A903D2 /* SumToTenChecker.swift in Sources */,
 				B90055641969A5CE009AD1B6 /* CardHelper.swift in Sources */,
 				B90055661969A5F6009AD1B6 /* UIImage+tintedImage.swift in Sources */,
 				B92BAE961947DF95001D3093 /* GameViewController.swift in Sources */,

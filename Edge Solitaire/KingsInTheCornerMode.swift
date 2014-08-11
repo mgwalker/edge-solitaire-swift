@@ -108,7 +108,38 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 	
 	func canClearCardsFromBoard(cardCollection: UICollectionView) -> Bool
 	{
-		return true;
+		var cardValues = [Int]();
+		
+		// Make sure  the collection view being tested has a
+		// section that contains 16 cells.  That's required
+		// of the game board, so, y'know...
+		if cardCollection.numberOfSections() == 1 && cardCollection.numberOfItemsInSection(0) == 16
+		{
+			// Now loop through those.
+			for i in 1..<16
+			{
+				// Make sure we have a card spot at this cell index.
+				if let cell = cardCollection.cellForItemAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as? CardSpotCell
+				{
+					if let card = cell.card
+					{
+						switch card.rank
+						{
+							case .Ten, .Jack, .Queen:
+								cardValues += [ 10 ];
+							
+							case .King:
+								break;
+							
+							default:
+								cardValues += [ card.rank.toRaw() ];
+						}
+					}
+				}
+			}
+		}
+
+		return SumToTenChecker.hasSumToTen(cardValues);
 	}
 	
 	func canClearSelectedCards(cards: [Card]) -> Bool
