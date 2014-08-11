@@ -54,6 +54,9 @@ class GameModeFactory
 			case .KingsInTheCorner:
 				return KingsInTheCornerModeController();
 			
+			case .RoyalsOnEdge:
+				return RoyalsOnEdgeModeController();
+			
 			default:
 				return nil;
 		}

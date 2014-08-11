@@ -22,6 +22,7 @@
 		B98AA754193D535200779305 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98AA753193D535200779305 /* Images.xcassets */; };
 		B98AA760193D535200779305 /* Edge_SolitaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA75F193D535200779305 /* Edge_SolitaireTests.swift */; };
 		B99A8E90199857FC00A903D2 /* SumToTenChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A8E8F199857FC00A903D2 /* SumToTenChecker.swift */; };
+		B99A8E921998583100A903D2 /* RoyalsOnEdgeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A8E911998583100A903D2 /* RoyalsOnEdgeMode.swift */; };
 		B9ABB6EE1968DDC500EC287E /* KingsInTheCornerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */; };
 		B9E5C65F1970BC3F0044DB75 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E5C65E1970BC3F0044DB75 /* PopupView.xib */; };
 		B9E5C6611970C0AE0044DB75 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5C6601970C0AE0044DB75 /* PopupView.swift */; };
@@ -57,6 +58,7 @@
 		B98AA75E193D535200779305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B98AA75F193D535200779305 /* Edge_SolitaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge_SolitaireTests.swift; sourceTree = "<group>"; };
 		B99A8E8F199857FC00A903D2 /* SumToTenChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumToTenChecker.swift; sourceTree = "<group>"; };
+		B99A8E911998583100A903D2 /* RoyalsOnEdgeMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoyalsOnEdgeMode.swift; sourceTree = "<group>"; };
 		B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingsInTheCornerMode.swift; sourceTree = "<group>"; };
 		B9E5C65E1970BC3F0044DB75 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		B9E5C6601970C0AE0044DB75 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */,
 				B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */,
+				B99A8E911998583100A903D2 /* RoyalsOnEdgeMode.swift */,
 				B99A8E8F199857FC00A903D2 /* SumToTenChecker.swift */,
 			);
 			name = "Game Modes";
@@ -302,6 +305,7 @@
 				B92BAE8B193EA93A001D3093 /* GameModeViewController.swift in Sources */,
 				B92BAE921947D328001D3093 /* Card.swift in Sources */,
 				B90055691969EE47009AD1B6 /* GameViewController+collectionViewDataSource.swift in Sources */,
+				B99A8E921998583100A903D2 /* RoyalsOnEdgeMode.swift in Sources */,
 				B92BAE901947D29B001D3093 /* GameModeControllerProtocol.swift in Sources */,
 				B900556D1969EEC9009AD1B6 /* GameViewController+UIView.swift in Sources */,
 				B99A8E90199857FC00A903D2 /* SumToTenChecker.swift in Sources */,
