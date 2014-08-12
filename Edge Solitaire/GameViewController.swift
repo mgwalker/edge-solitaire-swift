@@ -180,20 +180,15 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 
 				// Assume all the card spots are covered...
 				var allSpotsCovered = true;
-				cellLoop: for i in 0..<16
-				{
-					var indexPath = NSIndexPath(forRow: i, inSection: 0);
-					if let cell = self.cardCollection.cellForItemAtIndexPath(indexPath) as? CardSpotCell
+				iterateOverCardSpots({
+					(cardSpot:CardSpotCell) -> Bool in
+					if cardSpot.card == nil
 					{
-						// If any cell is lacking a card, then we know all
-						// spots are not yet covered and we can bail out.
-						if cell.card == nil
-						{
-							allSpotsCovered = false;
-							break cellLoop;
-						}
+						allSpotsCovered = false;
+						return false;
 					}
-				}
+					return true;
+				});
 				
 				// If all the spots are covered...
 				if allSpotsCovered
@@ -242,20 +237,33 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		// Make sure we're in clearing mode
 		if self.boardState == BoardState.ClearingCards
 		{
-			// Change the board state to "placing"
-			self.boardState = BoardState.PlacingCards;
-			
-			// Set the next card button image to the first card on the deck
-			self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
-			
-			// And if we have a mode controller, make sure we can place this
-			// card somewhere.  If we can't, the game is over.
-			if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: deck[0]) == false
-			{
-				let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
-				popup.restartGameCallback = self.startNewGame;
-				popup.quitGameCallback = self.quitToMenu;
-			}
+			// Also make sure that there's at least one clear spot.  If
+			// there's not, this touch was probably an accident.
+			iterateOverCardSpots({
+				(cardSpot:CardSpotCell) -> Bool in
+				
+				if cardSpot.card == nil
+				{
+					// Change the board state to "placing"
+					self.boardState = BoardState.PlacingCards;
+					
+					// Set the next card button image to the first card on the deck
+					self.nextCard.setBackgroundImage(CardHelper.imageForCard(self.deck[0]), forState: UIControlState.Normal);
+					
+					// And if we have a mode controller, make sure we can place this
+					// card somewhere.  If we can't, the game is over.
+					if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: self.deck[0]) == false
+					{
+						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
+						popup.restartGameCallback = self.startNewGame;
+						popup.quitGameCallback = self.quitToMenu;
+					}
+
+					return false;
+				}
+				
+				return true;
+			});
 		}
 	}
 	
@@ -268,16 +276,29 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		
 		self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
 		
+		iterateOverCardSpots({
+			(cardSpot:CardSpotCell)->Bool in
+			cardSpot.clearCard();
+			return true;
+		});
+	}
+	
+	func iterateOverCardSpots(fn:(cardSpot:CardSpotCell)->Bool)
+	{
 		if self.cardCollection.numberOfSections() == 1 && self.cardCollection.numberOfItemsInSection(0) == 16
 		{
 			for item in 0..<16
 			{
 				if let cardSpot = self.cardCollection.cellForItemAtIndexPath(NSIndexPath(forRow: item, inSection: 0)) as? CardSpotCell
 				{
-					cardSpot.clearCard();
+					if fn(cardSpot: cardSpot) == false
+					{
+						break;
+					}
 				}
 			}
 		}
+		
 	}
 	
 	func quitToMenu(popup: PopupView?)
