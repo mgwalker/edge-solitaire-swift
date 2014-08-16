@@ -160,7 +160,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					deck.removeAtIndex(0);
 					if deck.count > 0
 					{
-						self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
+						self.nextCard.setBackgroundImage(deck[0].image, forState: UIControlState.Normal);
 					}
 					else
 					{
@@ -248,7 +248,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					self.boardState = BoardState.PlacingCards;
 					
 					// Set the next card button image to the first card on the deck
-					self.nextCard.setBackgroundImage(CardHelper.imageForCard(self.deck[0]), forState: UIControlState.Normal);
+					self.nextCard.setBackgroundImage(self.deck[0].image, forState: UIControlState.Normal);
 					
 					// And if we have a mode controller, make sure we can place this
 					// card somewhere.  If we can't, the game is over.
@@ -274,7 +274,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		self.deck = Card.newDeck(shuffle: true);
 		self.boardState = BoardState.PlacingCards;
 		
-		self.nextCard.setBackgroundImage(CardHelper.imageForCard(deck[0]), forState: UIControlState.Normal);
+		self.nextCard.setBackgroundImage(deck[0].image, forState: UIControlState.Normal);
 		
 		iterateOverCardSpots({
 			(cardSpot:CardSpotCell)->Bool in

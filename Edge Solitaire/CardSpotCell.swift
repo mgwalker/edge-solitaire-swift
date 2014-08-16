@@ -48,7 +48,7 @@ class CardSpotCell:UICollectionViewCell
 			// If a card is being added, set the card image.
 			if card != nil
 			{
-				self.cardImage.image = CardHelper.imageForCard(card!);
+				self.cardImage.image = card!.image;
 			}
 			// Otherwise, clear the card image.
 			else

@@ -10,16 +10,18 @@ import UIKit
 
 // This will all get refactored.  It just provides
 // a way to get an image for a card.
-class CardHelper
+extension Card
 {
 	// Composites card blank, border, rank, and suit
 	// images together into a card image.
-	class func imageForCard(card:Card) -> UIImage
+	var image:UIImage
 	{
+		get
+		{
 		var suitColor = UIColor.blackColor();
 		var templateColor = UIColor.blackColor();
 		
-		if card.suit == Card.Suit.Diamond || card.suit == Card.Suit.Heart
+		if self.suit == Card.Suit.Diamond || self.suit == Card.Suit.Heart
 		{
 			suitColor = UIColor(red: 0.85, green: 0, blue: 0, alpha: 1.0);
 			templateColor = UIColor(red: 0.4, green: 0, blue: 0, alpha: 1.0);
@@ -27,8 +29,8 @@ class CardHelper
 		
 		let blank = UIImage.tintedImage(named: "Card Blank", tint: UIColor.whiteColor());
 		let template = UIImage.tintedImage(named: "Card Template", tint:templateColor);
-		let suit = UIImage.tintedImage(named: "Suit - \(card.suit.toRaw())", tint:suitColor);
-		let rank = UIImage.tintedImage(named: "Rank - \(card.rank.toRaw())", tint:UIColor.whiteColor());
+		let suit = UIImage.tintedImage(named: "Suit - \(self.suit.toRaw())", tint:suitColor);
+		let rank = UIImage.tintedImage(named: "Rank - \(self.rank.toRaw())", tint:UIColor.whiteColor());
 		
 		UIGraphicsBeginImageContext(template.size);
 		let context = UIGraphicsGetCurrentContext();
@@ -44,7 +46,7 @@ class CardHelper
 		rankY = template.size.height - rankY - rank.size.height;
 		rank.drawAtPoint(CGPoint(x: rankX, y: rankY));
 		
-		let rankValue = card.rank.toRaw();
+		let rankValue = self.rank.toRaw();
 		
 		let centerX = (template.size.width - suit.size.width) / 2.0;
 		let centerY = (template.size.height - suit.size.height) / 2.0;
@@ -107,16 +109,16 @@ class CardHelper
 				suit.drawAtPoint(CGPoint(x: centerX, y: centerY + suitHeight));
 			}
 		}
-		else if card.rank == Card.Rank.Ace
+		else if self.rank == Card.Rank.Ace
 		{
-			let ace = UIImage.tintedImage(named: "Face - 1\(card.suit.toRaw())", tint: suitColor);
+			let ace = UIImage.tintedImage(named: "Face - 1\(self.suit.toRaw())", tint: suitColor);
 			ace.drawAtPoint(CGPoint(
 				x: (template.size.width - ace.size.width) / 2.0,
 				y: (template.size.height - ace.size.height) / 2.0));
 		}
-		else if card.rank == .Queen
+		else if self.rank == .Queen
 		{
-			let queen = UIImage(named: "Face - Q\(Card.Suit.Heart.toRaw())");
+			let queen = UIImage(named: "Face - Q\(self.suit.toRaw())");
 			queen.drawAtPoint(CGPoint(
 				x: (template.size.width - queen.size.width) / 2.0,
 				y: (template.size.height - queen.size.height) / 2.0));
@@ -127,7 +129,7 @@ class CardHelper
 		}
 		else if rankValue > 10
 		{
-			let degrees:Double = (card.rank == Card.Rank.Jack ? 181 : (card.rank == Card.Rank.Queen ? 271 : 360));
+			let degrees:Double = (self.rank == Card.Rank.Jack ? 181 : (self.rank == Card.Rank.Queen ? 271 : 360));
 			for var angle:Double = 0; angle < degrees; angle += 22.5
 			{
 				var rad = (angle / 180.0) * Double(M_PI);
@@ -141,5 +143,6 @@ class CardHelper
 		UIGraphicsEndImageContext();
 		
 		return final;
+		}
 	}
 }
