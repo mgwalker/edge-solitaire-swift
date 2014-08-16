@@ -114,6 +114,17 @@ class CardHelper
 				x: (template.size.width - ace.size.width) / 2.0,
 				y: (template.size.height - ace.size.height) / 2.0));
 		}
+		else if card.rank == .Queen
+		{
+			let queen = UIImage(named: "Face - Q\(Card.Suit.Heart.toRaw())");
+			queen.drawAtPoint(CGPoint(
+				x: (template.size.width - queen.size.width) / 2.0,
+				y: (template.size.height - queen.size.height) / 2.0));
+			
+			var rankX = template.size.width - 75 - rank.size.width;
+			var rankY = 87.5 - (rank.size.height / 2.0);
+			suit.drawAtPoint(CGPoint(x: rankX, y: rankY));
+		}
 		else if rankValue > 10
 		{
 			let degrees:Double = (card.rank == Card.Rank.Jack ? 181 : (card.rank == Card.Rank.Queen ? 271 : 360));
