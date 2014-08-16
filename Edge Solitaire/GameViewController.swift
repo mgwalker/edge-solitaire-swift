@@ -78,6 +78,15 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 			}
 		}
 		
+		static func removeAllCardSpots()
+		{
+			for i in 0..<selectedCardSpots.count
+			{
+				selectedCardSpots[i].isSelected = false;
+			}
+			selectedCardSpots = [ ];
+		}
+		
 		// Clear the selection.
 		static func clearSelection()
 		{
@@ -246,6 +255,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				{
 					// Change the board state to "placing"
 					self.boardState = BoardState.PlacingCards;
+					CardCellSelectionGroup.removeAllCardSpots();
 					
 					// Set the next card button image to the first card on the deck
 					self.nextCard.setBackgroundImage(self.deck[0].image, forState: UIControlState.Normal);
