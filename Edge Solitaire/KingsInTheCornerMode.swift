@@ -116,7 +116,7 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 		if cardCollection.numberOfSections() == 1 && cardCollection.numberOfItemsInSection(0) == 16
 		{
 			// Now loop through those.
-			for i in 1..<16
+			for i in 0..<16
 			{
 				// Make sure we have a card spot at this cell index.
 				if let cell = cardCollection.cellForItemAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as? CardSpotCell
