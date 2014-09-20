@@ -42,7 +42,7 @@ class GameModeViewController:UITableViewController
 		royalsOnEdgeDescription.font = kingsInTheCornerDescription.font;
 	}
 	
-	override func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!)
+	override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
 	{
 		// iPad hack.  For some reason, the background color for
 		// table cells and headers as defined in NIB/Storyboard
@@ -59,24 +59,24 @@ class GameModeViewController:UITableViewController
 		}
 	}
 	
-	override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
 	{
 		// Clear the table cell selection.  Animating this causes
 		// the nice gentle flash when the user taps the row.
 		tableView.deselectRowAtIndexPath(indexPath, animated: true);
 	}
 	
-	override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!)
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
 	{
 		// Since this view is beign displayed as a popover, it needs
 		// to be dismissed before the incoming view is displayed.
-		self.dismissViewControllerAnimated(true, completion: nil);
+		//self.dismissViewControllerAnimated(true, completion: nil);
 		
 		// Make sure the segue is coming from a table cell...
 		if let cell = sender as? UITableViewCell
 		{
 			// Make sure the cell refers to a game mode...
-			if let mode = GameMode.fromRaw(cell.reuseIdentifier.uppercaseString)
+			if let mode = GameMode.fromRaw(cell.reuseIdentifier!.uppercaseString)
 			{
 				// Make sure there's a controller for the mode...
 				if let modeController = GameModeFactory.GetGameMode(mode)

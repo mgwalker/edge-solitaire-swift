@@ -12,18 +12,18 @@ import UIKit
 extension GameViewController
 {
 	// We only ever have one section.
-	func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int
+	func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
 	{
 		return 1;
 	}
 	
 	// And that section always has 16 rows.
-	func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
 	{
 		return 16;
 	}
 	
-	func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath:NSIndexPath) -> UICollectionViewCell
 	{
 		var tableViewCell = UICollectionViewCell();	// Default empty cell
 		

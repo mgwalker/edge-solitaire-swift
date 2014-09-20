@@ -200,17 +200,20 @@ class Card
 						x: (template.size.width - ace.size.width) / 2.0,
 						y: (template.size.height - ace.size.height) / 2.0));
 				}
-				else if self.rank == .Queen
+				else// if self.rank == .Queen
 				{
-					let queen = UIImage(named: "Face - Q\(self.suit.toRaw())");
-					queen.drawAtPoint(CGPoint(
-						x: (template.size.width - queen.size.width) / 2.0,
-						y: (template.size.height - queen.size.height) / 2.0));
+					let faceRank = (self.rank == .Jack ? "J" : self.rank == .Queen ? "Q" : "K");
 					
+					let face = UIImage(named: "Face - \(faceRank)\(self.suit.toRaw())");
+					
+					face.drawAtPoint(CGPoint(
+						x: (template.size.width - face.size.width) / 2.0,
+						y: (template.size.height - face.size.height) / 2.0));
+
 					var rankX = template.size.width - 75 - rank.size.width;
 					var rankY = 87.5 - (rank.size.height / 2.0);
 					suit.drawAtPoint(CGPoint(x: rankX, y: rankY));
-				}
+				}/*
 				else if rankValue > 10
 				{
 					let degrees:Double = (self.rank == Card.Rank.Jack ? 181 : (self.rank == Card.Rank.Queen ? 271 : 360));
@@ -221,7 +224,7 @@ class Card
 						var y:Float = (Float(sin(rad)) * Float(suit.size.height) * 1.5) + Float(centerY);
 						suit.drawAtPoint(CGPoint(x: CGFloat(x), y: CGFloat(y)));
 					}
-				}
+				}*/
 				
 				let final = UIGraphicsGetImageFromCurrentImageContext();
 				UIGraphicsEndImageContext();

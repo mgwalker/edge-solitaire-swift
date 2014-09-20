@@ -39,7 +39,7 @@ class LandingViewController: UIViewController
 	{
 		super.viewDidLoad()
 		
-		self.navigationController.navigationBarHidden = true;
+		self.navigationController?.navigationBarHidden = true;
 		self.setBackground();
 	}
 }

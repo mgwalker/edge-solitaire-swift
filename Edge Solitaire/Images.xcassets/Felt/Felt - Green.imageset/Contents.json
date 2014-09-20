@@ -12,6 +12,10 @@
       "idiom" : "universal",
       "scale" : "2x",
       "filename" : "green_felt@2x-1.jpg"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

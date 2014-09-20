@@ -85,6 +85,7 @@ class PopupView:UIView
 	
 	@IBAction func restartGame()
 	{
+		println("Popup: top button clicked");
 		if let fn = self.restartGameCallback
 		{
 			fn(self);
@@ -93,6 +94,7 @@ class PopupView:UIView
 	
 	@IBAction func quitGame()
 	{
+		println("Popup: bottom button clicked");
 		if let fn = self.quitGameCallback
 		{
 			fn(self);

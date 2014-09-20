@@ -102,7 +102,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 
 	}
 	
-	func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath:NSIndexPath)
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
 	{
 		// Make sure we have a mode controller.
 		if self.gameModeController == nil
