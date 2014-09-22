@@ -178,4 +178,12 @@ class RoyalsOnEdgeModeController : GameModeControllerProtocol
 		
 		return allRoyalsPlaced;
 	}
+	
+	var mode : GameMode
+	{
+		get
+		{
+			return GameMode.RoyalsOnEdge;
+		}
+	}
 }

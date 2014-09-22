@@ -171,4 +171,12 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 		
 		return allKingsPlaced;
 	}
+	
+	var mode : GameMode
+	{
+		get
+		{
+			return GameMode.KingsInTheCorner;
+		}
+	}
 }

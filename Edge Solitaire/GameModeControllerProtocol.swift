@@ -42,6 +42,8 @@ protocol GameModeControllerProtocol
 	// Indicates whether the game is won based on a given
 	// card cell collection.
 	func gameIsWon(cardCollection:UICollectionView) -> Bool;
+	
+	var mode: GameMode { get };
 }
 
 // Gets made mode controllers
