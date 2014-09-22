@@ -181,6 +181,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				// you know, stop here.
 				if self.gameModeController?.gameIsWon(self.cardCollection) == true
 				{
+					Settings.incrementGameCountForMode(self.gameModeController!.mode, didWin: true);
 					let popup = PopupView.showPopup(type: PopupView.PopupType.Win, onView: self.view);
 					popup.restartGameCallback = self.startNewGame;
 					popup.quitGameCallback = self.quitToMenu;
@@ -214,6 +215,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					{
 						// ...or else all spots are covered but nothing can be removed,
 						// so the game is over.  Alas.
+						Settings.incrementGameCountForMode(self.gameModeController!.mode);
 						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotRemove, onView: self.view);
 						popup.restartGameCallback = self.startNewGame;
 						popup.quitGameCallback = self.quitToMenu;
@@ -225,6 +227,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					// it can't, then game over, sucka.
 					if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: deck[0]) == false
 					{
+						Settings.incrementGameCountForMode(self.gameModeController!.mode);
 						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
 						popup.restartGameCallback = self.startNewGame;
 						popup.quitGameCallback = self.quitToMenu;
@@ -264,6 +267,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					// card somewhere.  If we can't, the game is over.
 					if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: self.deck[0]) == false
 					{
+						Settings.incrementGameCountForMode(self.gameModeController!.mode);
 						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
 						popup.restartGameCallback = self.startNewGame;
 						popup.quitGameCallback = self.quitToMenu;
@@ -279,6 +283,8 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	
 	func startNewGame(popup: PopupView?)
 	{
+		let stats = Settings.gameStatsForMode(self.gameModeController!.mode);
+		
 		popup?.close();
 		
 		self.deck = Card.newDeck(shuffle: true);
