@@ -15,6 +15,7 @@
 		B92BAE901947D29B001D3093 /* GameModeControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */; };
 		B92BAE921947D328001D3093 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE911947D328001D3093 /* Card.swift */; };
 		B92BAE961947DF95001D3093 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE951947DF95001D3093 /* GameViewController.swift */; };
+		B969D60519CFAC5D00D7622E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969D60419CFAC5D00D7622E /* Settings.swift */; };
 		B98AA74A193D535200779305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA749193D535200779305 /* AppDelegate.swift */; };
 		B98AA74F193D535200779305 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA74E193D535200779305 /* LandingViewController.swift */; };
 		B98AA752193D535200779305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98AA750193D535200779305 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModeControllerProtocol.swift; sourceTree = "<group>"; };
 		B92BAE911947D328001D3093 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		B92BAE951947DF95001D3093 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		B969D60419CFAC5D00D7622E /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B98AA744193D535200779305 /* Edge Solitaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Edge Solitaire.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98AA748193D535200779305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B98AA749193D535200779305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				B90055651969A5F6009AD1B6 /* UIImage+tintedImage.swift */,
 				B900556A1969EE92009AD1B6 /* CardSpotCell.swift */,
+				B969D60419CFAC5D00D7622E /* Settings.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				B99A8E921998583100A903D2 /* RoyalsOnEdgeMode.swift in Sources */,
 				B92BAE901947D29B001D3093 /* GameModeControllerProtocol.swift in Sources */,
 				B900556D1969EEC9009AD1B6 /* GameViewController+UIView.swift in Sources */,
+				B969D60519CFAC5D00D7622E /* Settings.swift in Sources */,
 				B99A8E90199857FC00A903D2 /* SumToTenChecker.swift in Sources */,
 				B90055661969A5F6009AD1B6 /* UIImage+tintedImage.swift in Sources */,
 				B92BAE961947DF95001D3093 /* GameViewController.swift in Sources */,
