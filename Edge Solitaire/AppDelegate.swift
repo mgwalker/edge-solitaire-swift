@@ -18,6 +18,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
 		// Override point for customization after application launch.
 		UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.None);
+		
+		let settings = NSUserDefaults.standardUserDefaults();
+		
+		// Update settings from Edge Solitaire 2.0 and prior
+		if settings.boolForKey("Edge Solitaire: Settings Updated") == false
+		{
+			let normalPlay = settings.integerForKey("edgeGamesPlayed_normal");
+			let normalWin = settings.integerForKey("edgeGamesWon_normal");
+			let easyPlay = settings.integerForKey("edgeGamesPlayed_easy");
+			let easyWin = settings.integerForKey("edgeGamesWon_easy");
+
+			let keys = (
+				easyPlayed: "Edge Solitaire:Games Played:\(GameMode.KingsInTheCorner.toRaw())",
+				easyWon: "Edge Solitaire:Games Won:\(GameMode.KingsInTheCorner.toRaw())",
+				
+				normalPlayed: "Edge Solitaire:Games Played:\(GameMode.FamiliesDivided.toRaw())",
+				normalWon: "Edge Solitaire:Games Won:\(GameMode.FamiliesDivided.toRaw())"
+			);
+			
+			settings.setInteger(normalPlay, forKey: keys.normalPlayed);
+			settings.setInteger(normalWin, forKey: keys.normalWon);
+			settings.setInteger(easyPlay, forKey: keys.easyPlayed);
+			settings.setInteger(easyWin, forKey: keys.easyWon);
+			
+			Settings.muted = settings.boolForKey("muted");
+			
+			settings.setBool(true, forKey: "Edge Solitaire: Settings Updated");
+			
+			settings.removeObjectForKey("edgeGamesPlayed_normal");
+			settings.removeObjectForKey("edgeGamesWon_normal");
+			settings.removeObjectForKey("edgeGamesPlayed_easy");
+			settings.removeObjectForKey("edgeGamesWon_easy");
+			settings.removeObjectForKey("muted");
+		}
+		
 		return true
 	}
 
