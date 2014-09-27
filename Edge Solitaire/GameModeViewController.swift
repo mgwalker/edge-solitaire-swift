@@ -24,18 +24,6 @@ class GameModeViewController:UITableViewController
 	{
 		super.viewDidLoad()
 		self.setBackground();
-		
-		let kingsInTheCornerStats = Settings.gameStatsForMode(GameMode.KingsInTheCorner);
-		let kPct = NSString(format: "%.1f", kingsInTheCornerStats.percent);
-		
-		let royalsOnEdgeStats = Settings.gameStatsForMode(GameMode.RoyalsOnEdge);
-		let rPct = NSString(format: "%.1f", royalsOnEdgeStats.percent);
-		
-		let familesDividedStats = Settings.gameStatsForMode(GameMode.FamiliesDivided);
-		let fPct = NSString(format: "%.1f", familesDividedStats.percent);
-		
-		self.kingsInTheCornerStats.text = "Won \(kingsInTheCornerStats.won) of \(kingsInTheCornerStats.played) (\(kPct)%)";
-		self.royalsOnEdgeStats.text = "Won \(royalsOnEdgeStats.won) of \(royalsOnEdgeStats.played) (\(rPct)%)";
 	}
 	
 	override func viewWillAppear(animated: Bool)
@@ -54,6 +42,18 @@ class GameModeViewController:UITableViewController
 				kingsInTheCornerDescription.font = kingsInTheCornerDescription.font.fontWithSize(24);
 		}
 		royalsOnEdgeDescription.font = kingsInTheCornerDescription.font;
+		
+		let kingsInTheCornerStats = Settings.gameStatsForMode(GameMode.KingsInTheCorner);
+		let kPct = NSString(format: "%.1f", kingsInTheCornerStats.percent);
+		
+		let royalsOnEdgeStats = Settings.gameStatsForMode(GameMode.RoyalsOnEdge);
+		let rPct = NSString(format: "%.1f", royalsOnEdgeStats.percent);
+		
+		let familesDividedStats = Settings.gameStatsForMode(GameMode.FamiliesDivided);
+		let fPct = NSString(format: "%.1f", familesDividedStats.percent);
+		
+		self.kingsInTheCornerStats.text = "Won \(kingsInTheCornerStats.won) of \(kingsInTheCornerStats.played) (\(kPct)%)";
+		self.royalsOnEdgeStats.text = "Won \(royalsOnEdgeStats.won) of \(royalsOnEdgeStats.played) (\(rPct)%)";
 	}
 	
 	override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
