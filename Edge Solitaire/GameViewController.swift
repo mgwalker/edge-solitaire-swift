@@ -327,6 +327,6 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	func quitToMenu(popup: PopupView?)
 	{
 		popup?.close();
-		print("Quit to menu\n");
+		self.navigationController?.popToRootViewControllerAnimated(true);
 	}
 }
