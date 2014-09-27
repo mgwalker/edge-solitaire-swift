@@ -58,16 +58,10 @@ class PopupView:UIView
 		{
 			imageView.image = UIImage(named: type.toRaw());
 		}
-		
-		switch type
+
+		if type == .Restart
 		{
-			case PopupView.PopupType.Restart:
-				popup.topButton.setImage(UIImage(named: "Button - Restart"), forState: UIControlState.Normal);
-				popup.bottomButton.setImage(UIImage(named: "Button - Menu"), forState: UIControlState.Normal);
-				break;
-			
-			default:
-				break;
+			popup.topButton.setImage(UIImage(named: "Button - Restart"), forState: UIControlState.Normal);
 		}
 		
 		popupBlur.alpha = 0;

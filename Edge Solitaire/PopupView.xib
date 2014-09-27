@@ -27,7 +27,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1i6-7S-613" userLabel="Bottom button">
                             <rect key="frame" x="82" y="290" width="160" height="51"/>
-                            <state key="normal" image="Button - Quit">
+                            <state key="normal" image="Button - Menu">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -70,8 +70,8 @@
         </view>
     </objects>
     <resources>
+        <image name="Button - Menu" width="160" height="51"/>
         <image name="Button - Play Again" width="160" height="51"/>
-        <image name="Button - Quit" width="160" height="51"/>
         <image name="Popup - Win" width="242" height="223"/>
     </resources>
 </document>
