@@ -281,6 +281,13 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		}
 	}
 	
+	@IBAction func showQuitOrRestartMenu()
+	{
+		let popup = PopupView.showPopup(type: PopupView.PopupType.Restart, onView: self.view);
+		popup.restartGameCallback = self.startNewGame;
+		popup.quitGameCallback = self.quitToMenu;
+	}
+	
 	func startNewGame(popup: PopupView?)
 	{
 		let stats = Settings.gameStatsForMode(self.gameModeController!.mode);

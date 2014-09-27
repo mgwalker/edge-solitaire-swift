@@ -293,6 +293,9 @@
                                 <items>
                                     <barButtonItem image="Control - Restart" id="q0p-zl-NO6">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="showQuitOrRestartMenu" destination="q5S-tQ-aJj" id="MyD-zz-TGN"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Yth-oV-cyk"/>
                                     <barButtonItem image="Control - Unmute" id="guL-oe-1cZ">
