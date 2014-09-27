@@ -13,15 +13,29 @@ class GameModeViewController:UITableViewController
 {
 	// Description text and cell for the different game modes.
 	@IBOutlet var kingsInTheCornerDescription:UILabel!;
+	@IBOutlet var kingsInTheCornerStats:UILabel!;
 	@IBOutlet var kingsInTheCornerCell:UITableViewCell!;
 	
 	@IBOutlet var royalsOnEdgeDescription:UILabel!;
+	@IBOutlet var royalsOnEdgeStats:UILabel!;
 	@IBOutlet var royalsOnEdgeCell:UITableViewCell!;
 	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
 		self.setBackground();
+		
+		let kingsInTheCornerStats = Settings.gameStatsForMode(GameMode.KingsInTheCorner);
+		let kPct = NSString(format: "%.1f", kingsInTheCornerStats.percent);
+		
+		let royalsOnEdgeStats = Settings.gameStatsForMode(GameMode.RoyalsOnEdge);
+		let rPct = NSString(format: "%.1f", royalsOnEdgeStats.percent);
+		
+		let familesDividedStats = Settings.gameStatsForMode(GameMode.FamiliesDivided);
+		let fPct = NSString(format: "%.1f", familesDividedStats.percent);
+		
+		self.kingsInTheCornerStats.text = "Won \(kingsInTheCornerStats.won) of \(kingsInTheCornerStats.played) (\(kPct)%)";
+		self.royalsOnEdgeStats.text = "Won \(royalsOnEdgeStats.won) of \(royalsOnEdgeStats.played) (\(rPct)%)";
 	}
 	
 	override func viewWillAppear(animated: Bool)
@@ -68,10 +82,6 @@ class GameModeViewController:UITableViewController
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
 	{
-		// Since this view is beign displayed as a popover, it needs
-		// to be dismissed before the incoming view is displayed.
-		//self.dismissViewControllerAnimated(true, completion: nil);
-		
 		// Make sure the segue is coming from a table cell...
 		if let cell = sender as? UITableViewCell
 		{
