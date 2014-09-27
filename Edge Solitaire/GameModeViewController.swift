@@ -43,17 +43,27 @@ class GameModeViewController:UITableViewController
 		}
 		royalsOnEdgeDescription.font = kingsInTheCornerDescription.font;
 		
+		let formatter = NSNumberFormatter();
+		formatter.formatterBehavior = NSNumberFormatterBehavior.Behavior10_4;
+		formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle;
+
 		let kingsInTheCornerStats = Settings.gameStatsForMode(GameMode.KingsInTheCorner);
+		let kPlay = formatter.stringFromNumber(NSNumber(integer: kingsInTheCornerStats.played));
+		let kWon = formatter.stringFromNumber(NSNumber(integer: kingsInTheCornerStats.won));
 		let kPct = NSString(format: "%.1f", kingsInTheCornerStats.percent);
 		
 		let royalsOnEdgeStats = Settings.gameStatsForMode(GameMode.RoyalsOnEdge);
+		let rPlay = formatter.stringFromNumber(NSNumber(integer: royalsOnEdgeStats.played));
+		let rWon = formatter.stringFromNumber(NSNumber(integer: royalsOnEdgeStats.won));
 		let rPct = NSString(format: "%.1f", royalsOnEdgeStats.percent);
 		
 		let familesDividedStats = Settings.gameStatsForMode(GameMode.FamiliesDivided);
+		let fPlay = formatter.stringFromNumber(NSNumber(integer: familesDividedStats.played));
+		let fWon = formatter.stringFromNumber(NSNumber(integer: familesDividedStats.won));
 		let fPct = NSString(format: "%.1f", familesDividedStats.percent);
 		
-		self.kingsInTheCornerStats.text = "Won \(kingsInTheCornerStats.won) of \(kingsInTheCornerStats.played) (\(kPct)%)";
-		self.royalsOnEdgeStats.text = "Won \(royalsOnEdgeStats.won) of \(royalsOnEdgeStats.played) (\(rPct)%)";
+		self.kingsInTheCornerStats.text = "Won \(kWon) of \(kPlay) (\(kPct)%)";
+		self.royalsOnEdgeStats.text = "Won \(rWon) of \(rPlay) (\(rPct)%)";
 	}
 	
 	override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
