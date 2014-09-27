@@ -12,6 +12,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 {
 	@IBOutlet var cardCollection:UICollectionView!;	// Card collection view
 	@IBOutlet var nextCard:UIButton!;				// "Next card" button
+	@IBOutlet var gameStat:UIBarItem!;
 	
 	// Possible board states
 	enum BoardState
@@ -23,8 +24,35 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	var deck:[Card] = [ ];
 	
 	// Mode controller and current board state
-	var gameModeController:GameModeControllerProtocol?;
+	var gameModeController:GameModeControllerProtocol!;
 	var boardState = BoardState.PlacingCards;
+	
+	func showGameStats()
+	{
+		let stat = Settings.gameStatsForMode(self.gameModeController.mode);
+		
+		let formatter = NSNumberFormatter();
+		formatter.formatterBehavior = NSNumberFormatterBehavior.Behavior10_4;
+		formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle;
+
+		let played = formatter.stringFromNumber(NSNumber(integer: stat.played));
+		let won = formatter.stringFromNumber(NSNumber(integer: stat.won));
+
+		var statString = "";
+		
+		var size = self.traitCollection.horizontalSizeClass;
+		switch(size)
+		{
+			case .Compact:
+				statString = "Won \(won) of \(played)";
+				break;
+			default:
+				statString = "Won \(won) of \(played)";
+				break;
+		}
+		
+		self.gameStat.title = statString;
+	}
 	
 	// Structure for keeping up with selected cards
 	// and clearing the cards when the controller
@@ -119,7 +147,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				case .PlacingCards:
 					// Make sure there's not a card on the cell and that the
 					// top card on the deck can be placed on the cell.
-					if cell.card == nil && self.gameModeController!.canPlaceCardOnSpot(cell, card: deck[0])
+					if cell.card == nil && self.gameModeController.canPlaceCardOnSpot(cell, card: deck[0])
 					{
 						// Set the card and advance the game.
 						cell.card = deck[0];
@@ -127,14 +155,14 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					}
 				case .ClearingCards:
 					// Make sure the cell has a card and it can be selected.
-					if cell.card != nil && self.gameModeController!.canSelectCard(cell.card!)
+					if cell.card != nil && self.gameModeController.canSelectCard(cell.card!)
 					{
 						// If it's already selected, remove it from the
 						// selection group...
 						if cell.isSelected
 						{
 							CardCellSelectionGroup.removeCardSpot(cell);
-							if self.gameModeController!.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
+							if self.gameModeController.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
 							{
 								CardCellSelectionGroup.clearSelection();
 							}
@@ -143,7 +171,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						else
 						{
 							CardCellSelectionGroup.addCardSpot(cell);
-							if self.gameModeController!.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
+							if self.gameModeController.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
 							{
 								CardCellSelectionGroup.clearSelection();
 							}
@@ -179,9 +207,10 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 
 				// Check if the player already won.  If they did, then,
 				// you know, stop here.
-				if self.gameModeController?.gameIsWon(self.cardCollection) == true
+				if self.gameModeController.gameIsWon(self.cardCollection) == true
 				{
-					Settings.incrementGameCountForMode(self.gameModeController!.mode, didWin: true);
+					Settings.incrementGameCountForMode(self.gameModeController.mode, didWin: true);
+					self.showGameStats();
 					let popup = PopupView.showPopup(type: PopupView.PopupType.Win, onView: self.view);
 					popup.restartGameCallback = self.startNewGame;
 					popup.quitGameCallback = self.quitToMenu;
@@ -204,7 +233,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				if allSpotsCovered
 				{
 					// ...and some combination of cards can be cleared...
-					if self.gameModeController!.canClearCardsFromBoard(self.cardCollection)
+					if self.gameModeController.canClearCardsFromBoard(self.cardCollection)
 					{
 						// ...switch to summing mode and set the next card button
 						// to the card back image.
@@ -215,7 +244,8 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					{
 						// ...or else all spots are covered but nothing can be removed,
 						// so the game is over.  Alas.
-						Settings.incrementGameCountForMode(self.gameModeController!.mode);
+						Settings.incrementGameCountForMode(self.gameModeController.mode);
+						self.showGameStats();
 						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotRemove, onView: self.view);
 						popup.restartGameCallback = self.startNewGame;
 						popup.quitGameCallback = self.quitToMenu;
@@ -225,9 +255,10 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				{
 					// ...otherwise, check if the next card can be played.  If
 					// it can't, then game over, sucka.
-					if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: deck[0]) == false
+					if self.gameModeController.canPlaceCardAnywhere(self.cardCollection, card: deck[0]) == false
 					{
-						Settings.incrementGameCountForMode(self.gameModeController!.mode);
+						Settings.incrementGameCountForMode(self.gameModeController.mode);
+						self.showGameStats();
 						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
 						popup.restartGameCallback = self.startNewGame;
 						popup.quitGameCallback = self.quitToMenu;
@@ -265,9 +296,10 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					
 					// And if we have a mode controller, make sure we can place this
 					// card somewhere.  If we can't, the game is over.
-					if self.gameModeController?.canPlaceCardAnywhere(self.cardCollection, card: self.deck[0]) == false
+					if self.gameModeController.canPlaceCardAnywhere(self.cardCollection, card: self.deck[0]) == false
 					{
-						Settings.incrementGameCountForMode(self.gameModeController!.mode);
+						Settings.incrementGameCountForMode(self.gameModeController.mode);
+						self.showGameStats();
 						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
 						popup.restartGameCallback = self.startNewGame;
 						popup.quitGameCallback = self.quitToMenu;
@@ -290,7 +322,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	
 	func startNewGame(popup: PopupView?)
 	{
-		let stats = Settings.gameStatsForMode(self.gameModeController!.mode);
+		let stats = Settings.gameStatsForMode(self.gameModeController.mode);
 		
 		popup?.close();
 		
