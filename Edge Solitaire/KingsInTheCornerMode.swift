@@ -173,6 +173,14 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 		return allKingsPlaced;
 	}
 	
+	var clearingInstruction : String
+	{
+		get
+		{
+			return "Tap cards to sum their values to ten.  Aces count as one and Jacks and Queens count as ten.";
+		}
+	}
+	
 	var mode : GameMode
 	{
 		get

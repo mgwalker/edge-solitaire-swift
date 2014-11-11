@@ -43,6 +43,8 @@ protocol GameModeControllerProtocol
 	// card cell collection.
 	func gameIsWon(cardCollection:UICollectionView) -> Bool;
 	
+	var clearingInstruction: String { get };
+	
 	var mode: GameMode { get };
 }
 

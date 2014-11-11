@@ -166,7 +166,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						let (canSelect, reason) = self.gameModeController.canSelectCard(cell.card!);
 						if canSelect
 						{
-							self.instruction.text = nil;
+							self.instruction.text = self.gameModeController.clearingInstruction;
 							
 							// If it's already selected, remove it from the
 							// selection group...
@@ -200,7 +200,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	
 	func advanceGame()
 	{
-		self.instruction.text = nil;
+		self.setInstructionText();
 		
 		// How we proceed depends on the board state
 		switch self.boardState
@@ -256,6 +256,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						// ...switch to summing mode and set the next card button
 						// to the card back image.
 						self.boardState = BoardState.ClearingCards;
+						self.setInstructionText();
 						self.nextCard.setBackgroundImage(UIImage(named: "Back - Red"), forState: UIControlState.Normal);
 					}
 					else
@@ -288,6 +289,20 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 			// modes, we'll just happily do nothing until
 			// we figure out what should happen in that mode.
 			default:
+				break;
+		}
+	}
+	
+	func setInstructionText()
+	{
+		switch self.boardState
+		{
+			case .PlacingCards:
+				self.instruction.text = "Tap a spot above to place the next card.";
+				break;
+			
+			case .ClearingCards:
+				self.instruction.text = self.gameModeController.clearingInstruction;
 				break;
 		}
 	}
@@ -346,6 +361,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		
 		self.deck = Card.newDeck(shuffle: true);
 		self.boardState = BoardState.PlacingCards;
+		self.setInstructionText();
 		
 		self.nextCard.setBackgroundImage(deck[0].image, forState: UIControlState.Normal);
 		
