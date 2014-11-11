@@ -30,11 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let easyWin = settings.integerForKey("edgeGamesWon_easy");
 
 			let keys = (
-				easyPlayed: "Edge Solitaire:Games Played:\(GameMode.KingsInTheCorner.toRaw())",
-				easyWon: "Edge Solitaire:Games Won:\(GameMode.KingsInTheCorner.toRaw())",
+				easyPlayed: "Edge Solitaire:Games Played:\(GameMode.KingsInTheCorner.rawValue)",
+				easyWon: "Edge Solitaire:Games Won:\(GameMode.KingsInTheCorner.rawValue)",
 				
-				normalPlayed: "Edge Solitaire:Games Played:\(GameMode.FamiliesDivided.toRaw())",
-				normalWon: "Edge Solitaire:Games Won:\(GameMode.FamiliesDivided.toRaw())"
+				normalPlayed: "Edge Solitaire:Games Played:\(GameMode.FamiliesDivided.rawValue)",
+				normalWon: "Edge Solitaire:Games Won:\(GameMode.FamiliesDivided.rawValue))"
 			);
 			
 			settings.setInteger(normalPlay, forKey: keys.normalPlayed);
@@ -46,11 +46,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 			settings.setBool(true, forKey: "Edge Solitaire: Settings Updated");
 			
-			settings.removeObjectForKey("edgeGamesPlayed_normal");
-			settings.removeObjectForKey("edgeGamesWon_normal");
-			settings.removeObjectForKey("edgeGamesPlayed_easy");
-			settings.removeObjectForKey("edgeGamesWon_easy");
-			settings.removeObjectForKey("muted");
+			//settings.removeObjectForKey("edgeGamesPlayed_normal");
+			//settings.removeObjectForKey("edgeGamesWon_normal");
+			//settings.removeObjectForKey("edgeGamesPlayed_easy");
+			//settings.removeObjectForKey("edgeGamesWon_easy");
+			//settings.removeObjectForKey("muted");
+		}
+		
+		for card in Card.newDeck()
+		{
+			card.image;
 		}
 		
 		return true

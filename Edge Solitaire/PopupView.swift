@@ -56,7 +56,7 @@ class PopupView:UIView
 		
 		if let imageView = popup.popupImage
 		{
-			imageView.image = UIImage(named: type.toRaw());
+			imageView.image = UIImage(named: type.rawValue);
 		}
 
 		if type == .Restart

@@ -87,7 +87,7 @@ class RoyalsOnEdgeModeController : GameModeControllerProtocol
 	
 	// Indicates whether a card may be placed on a particular
 	// card spot.
-	func canPlaceCardOnSpot(cardSpot:CardSpotCell, card:Card) -> Bool
+	func canPlaceCardOnSpot(cardSpot:CardSpotCell, card:Card) -> (Bool, String)
 	{
 		var canPlace = true;
 		if isFaceCard(card)
@@ -97,13 +97,13 @@ class RoyalsOnEdgeModeController : GameModeControllerProtocol
 				canPlace = false;
 			}
 		}
-		return canPlace;
+		return (canPlace, "Royals can only be placed on the edges.");
 	}
 	
 	// Indicates whether a card may be selected.
-	func canSelectCard(card:Card) -> Bool
+	func canSelectCard(card:Card) -> (Bool, String)
 	{
-		return !isFaceCard(card);
+		return (!isFaceCard(card), "Royals cannot be removed from the board.");
 	}
 	
 	// Determines whether or not any cards may be cleared from
@@ -131,7 +131,7 @@ class RoyalsOnEdgeModeController : GameModeControllerProtocol
 								break;
 							
 							default:
-								cardValues += [ card.rank.toRaw() ];
+								cardValues += [ card.rank.rawValue ];
 						}
 					}
 				}
@@ -153,7 +153,7 @@ class RoyalsOnEdgeModeController : GameModeControllerProtocol
 			case .Ten, .Jack, .Queen:
 				sum += 10;
 			default:
-				sum += card.rank.toRaw();
+				sum += card.rank.rawValue;
 			}
 		}
 		

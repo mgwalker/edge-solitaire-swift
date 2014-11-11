@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lrV-WY-kLI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lrV-WY-kLI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -242,10 +242,10 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="FXU-97-pOx"/>
-                                                    <exclude reference="gZ5-Vq-36G"/>
                                                     <exclude reference="0He-i0-gI5"/>
+                                                    <exclude reference="FXU-97-pOx"/>
                                                     <exclude reference="SdJ-GN-iHi"/>
+                                                    <exclude reference="gZ5-Vq-36G"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -394,13 +394,23 @@
                                             <action selector="resumePlacingCards" destination="q5S-tQ-aJj" eventType="touchUpInside" id="57a-Pb-o1o"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="run-b9-Kyb">
+                                        <rect key="frame" x="8" y="8" width="177" height="134"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zho-JD-ldE" secondAttribute="trailing" constant="20" id="HzT-uY-JJQ"/>
                                     <constraint firstAttribute="bottom" secondItem="zho-JD-ldE" secondAttribute="bottom" id="XAZ-Jf-ONO"/>
                                     <constraint firstAttribute="height" constant="150" id="ZUi-Ej-dko"/>
+                                    <constraint firstItem="zho-JD-ldE" firstAttribute="leading" secondItem="run-b9-Kyb" secondAttribute="trailing" constant="8" id="ere-Mm-Nsh"/>
+                                    <constraint firstItem="run-b9-Kyb" firstAttribute="leading" secondItem="iIK-EH-OfF" secondAttribute="leading" constant="8" id="f4J-4m-9ep"/>
+                                    <constraint firstAttribute="bottom" secondItem="run-b9-Kyb" secondAttribute="bottom" constant="8" id="oi0-4T-Xxq"/>
                                     <constraint firstAttribute="height" constant="70" id="vAw-Z2-dXa"/>
+                                    <constraint firstItem="run-b9-Kyb" firstAttribute="top" secondItem="iIK-EH-OfF" secondAttribute="top" constant="8" id="y2A-nd-SoA"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -433,6 +443,7 @@
                     <connections>
                         <outlet property="cardCollection" destination="bBw-dq-dKZ" id="p9e-wZ-IkV"/>
                         <outlet property="gameStat" destination="xT6-Vd-Ir9" id="mTe-vA-OZ0"/>
+                        <outlet property="instruction" destination="run-b9-Kyb" id="OxP-U5-zmx"/>
                         <outlet property="nextCard" destination="zho-JD-ldE" id="64t-t9-v8M"/>
                     </connections>
                 </viewController>

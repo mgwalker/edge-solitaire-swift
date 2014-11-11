@@ -16,7 +16,7 @@ extension UIViewController
 {
 	func setBackground()
 	{
-		self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Felt - Green"));
+		self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Felt - Green")!);
 	}
 	
 	// And this one is really an override of the UIViewController

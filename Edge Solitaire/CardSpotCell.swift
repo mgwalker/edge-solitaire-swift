@@ -28,7 +28,7 @@ class CardSpotCell:UICollectionViewCell
 			if isSelected
 			{
 				self.layer.borderColor = UIColor.yellowColor().CGColor;
-				self.layer.cornerRadius = 10;
+				//self.layer.cornerRadius = 10;
 				self.layer.borderWidth = 5;
 			}
 			// When the cell switches to unselected,

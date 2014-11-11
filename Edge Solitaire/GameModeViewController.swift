@@ -48,18 +48,18 @@ class GameModeViewController:UITableViewController
 		formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle;
 
 		let kingsInTheCornerStats = Settings.gameStatsForMode(GameMode.KingsInTheCorner);
-		let kPlay = formatter.stringFromNumber(NSNumber(integer: kingsInTheCornerStats.played));
-		let kWon = formatter.stringFromNumber(NSNumber(integer: kingsInTheCornerStats.won));
+		let kPlay = formatter.stringFromNumber(NSNumber(integer: kingsInTheCornerStats.played))!;
+		let kWon = formatter.stringFromNumber(NSNumber(integer: kingsInTheCornerStats.won))!;
 		let kPct = NSString(format: "%.1f", kingsInTheCornerStats.percent);
 		
 		let royalsOnEdgeStats = Settings.gameStatsForMode(GameMode.RoyalsOnEdge);
-		let rPlay = formatter.stringFromNumber(NSNumber(integer: royalsOnEdgeStats.played));
-		let rWon = formatter.stringFromNumber(NSNumber(integer: royalsOnEdgeStats.won));
+		let rPlay = formatter.stringFromNumber(NSNumber(integer: royalsOnEdgeStats.played))!;
+		let rWon = formatter.stringFromNumber(NSNumber(integer: royalsOnEdgeStats.won))!;
 		let rPct = NSString(format: "%.1f", royalsOnEdgeStats.percent);
 		
 		let familesDividedStats = Settings.gameStatsForMode(GameMode.FamiliesDivided);
-		let fPlay = formatter.stringFromNumber(NSNumber(integer: familesDividedStats.played));
-		let fWon = formatter.stringFromNumber(NSNumber(integer: familesDividedStats.won));
+		let fPlay = formatter.stringFromNumber(NSNumber(integer: familesDividedStats.played))!;
+		let fWon = formatter.stringFromNumber(NSNumber(integer: familesDividedStats.won))!;
 		let fPct = NSString(format: "%.1f", familesDividedStats.percent);
 		
 		self.kingsInTheCornerStats.text = "Won \(kWon) of \(kPlay) (\(kPct)%)";
@@ -96,7 +96,7 @@ class GameModeViewController:UITableViewController
 		if let cell = sender as? UITableViewCell
 		{
 			// Make sure the cell refers to a game mode...
-			if let mode = GameMode.fromRaw(cell.reuseIdentifier!.uppercaseString)
+			if let mode = GameMode(rawValue: cell.reuseIdentifier!.uppercaseString)
 			{
 				// Make sure there's a controller for the mode...
 				if let modeController = GameModeFactory.GetGameMode(mode)

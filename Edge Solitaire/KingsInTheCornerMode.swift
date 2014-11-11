@@ -86,24 +86,25 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 		return true;
 	}
 	
-	func canPlaceCardOnSpot(cardSpot: CardSpotCell, card: Card) -> Bool
+	func canPlaceCardOnSpot(cardSpot: CardSpotCell, card: Card) -> (Bool, String)
 	{
 		// If the card is a king...
 		if card.rank == Card.Rank.King
 		{
 			// ...then make sure the spot is a corner.
-			return (cardSpot.index == 0 || cardSpot.index == 3 || cardSpot.index == 12 || cardSpot.index == 15);
+			let canPlace = (cardSpot.index == 0 || cardSpot.index == 3 || cardSpot.index == 12 || cardSpot.index == 15);
+			return (canPlace, "Kings can only be placed in the corners.");
 		}
 		
 		// Otherwise, the answer is yes because we (still) don't care.
-		return true;
+		return (true, "Kings can only be placed in the corners.");
 	}
 	
-	func canSelectCard(card: Card) -> Bool
+	func canSelectCard(card: Card) -> (Bool, String)
 	{
 		// Kings can't be selected because they can't
 		// be removed.  Easy enough.
-		return (card.rank != Card.Rank.King);
+		return (card.rank != Card.Rank.King, "Kings cannot be removed from the board.");
 	}
 	
 	func canClearCardsFromBoard(cardCollection: UICollectionView) -> Bool
@@ -132,7 +133,7 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 								break;
 							
 							default:
-								cardValues += [ card.rank.toRaw() ];
+								cardValues += [ card.rank.rawValue ];
 						}
 					}
 				}
@@ -152,7 +153,7 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 				case .Ten, .Jack, .Queen:
 					sum += 10;
 				default:
-					sum += card.rank.toRaw();
+					sum += card.rank.rawValue;
 			}
 		}
 		

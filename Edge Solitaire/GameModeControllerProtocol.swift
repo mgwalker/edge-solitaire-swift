@@ -26,10 +26,10 @@ protocol GameModeControllerProtocol
 	
 	// Indicates whether a card may be placed on a particular
 	// card spot.
-	func canPlaceCardOnSpot(cardSpot:CardSpotCell, card:Card) -> Bool;
+	func canPlaceCardOnSpot(cardSpot:CardSpotCell, card:Card) -> (Bool, String);
 	
 	// Indicates whether a card may be selected.
-	func canSelectCard(card:Card) -> Bool;
+	func canSelectCard(card:Card) -> (Bool, String);
 	
 	// Determines whether or not any cards may be cleared from
 	// the particular board.

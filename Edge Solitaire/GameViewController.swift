@@ -13,6 +13,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	@IBOutlet var cardCollection:UICollectionView!;	// Card collection view
 	@IBOutlet var nextCard:UIButton!;				// "Next card" button
 	@IBOutlet var gameStat:UIBarItem!;
+	@IBOutlet var instruction:UILabel!;
 	
 	// Possible board states
 	enum BoardState
@@ -35,8 +36,8 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		formatter.formatterBehavior = NSNumberFormatterBehavior.Behavior10_4;
 		formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle;
 
-		let played = formatter.stringFromNumber(NSNumber(integer: stat.played));
-		let won = formatter.stringFromNumber(NSNumber(integer: stat.won));
+		let played = formatter.stringFromNumber(NSNumber(integer: stat.played))!;
+		let won = formatter.stringFromNumber(NSNumber(integer: stat.won))!;
 
 		var statString = "";
 		
@@ -147,34 +148,49 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				case .PlacingCards:
 					// Make sure there's not a card on the cell and that the
 					// top card on the deck can be placed on the cell.
-					if cell.card == nil && self.gameModeController.canPlaceCardOnSpot(cell, card: deck[0])
+					let (canPlace, reason) = self.gameModeController.canPlaceCardOnSpot(cell, card:  deck[0]);
+					if cell.card == nil && canPlace
 					{
 						// Set the card and advance the game.
 						cell.card = deck[0];
 						self.advanceGame();
 					}
+					else if !canPlace
+					{
+						self.instruction.text = reason;
+					}
 				case .ClearingCards:
 					// Make sure the cell has a card and it can be selected.
-					if cell.card != nil && self.gameModeController.canSelectCard(cell.card!)
+					if cell.card != nil
 					{
-						// If it's already selected, remove it from the
-						// selection group...
-						if cell.isSelected
+						let (canSelect, reason) = self.gameModeController.canSelectCard(cell.card!);
+						if canSelect
 						{
-							CardCellSelectionGroup.removeCardSpot(cell);
-							if self.gameModeController.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
+							self.instruction.text = nil;
+							
+							// If it's already selected, remove it from the
+							// selection group...
+							if cell.isSelected
 							{
-								CardCellSelectionGroup.clearSelection();
+								CardCellSelectionGroup.removeCardSpot(cell);
+								if self.gameModeController.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
+								{
+									CardCellSelectionGroup.clearSelection();
+								}
+							}
+							// ...otherwise, add it to the selection group.
+							else
+							{
+								CardCellSelectionGroup.addCardSpot(cell);
+								if self.gameModeController.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
+								{
+									CardCellSelectionGroup.clearSelection();
+								}
 							}
 						}
-						// ...otherwise, add it to the selection group.
 						else
 						{
-							CardCellSelectionGroup.addCardSpot(cell);
-							if self.gameModeController.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
-							{
-								CardCellSelectionGroup.clearSelection();
-							}
+							self.instruction.text = reason;
 						}
 					}
 					break;
@@ -184,6 +200,8 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	
 	func advanceGame()
 	{
+		self.instruction.text = nil;
+		
 		// How we proceed depends on the board state
 		switch self.boardState
 		{

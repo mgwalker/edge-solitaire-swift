@@ -13,8 +13,8 @@ class Settings
 	private class func keysForMode(mode: GameMode) -> (played: String, won: String)
 	{
 		return (
-			"Edge Solitaire:Games Played:\(mode.toRaw())",
-			"Edge Solitaire:Games Won:\(mode.toRaw())"
+			"Edge Solitaire:Games Played:\(mode.rawValue)",
+			"Edge Solitaire:Games Won:\(mode.rawValue)"
 		);
 	}
 	
