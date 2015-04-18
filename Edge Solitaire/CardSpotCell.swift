@@ -19,13 +19,13 @@ class CardSpotCell:UICollectionViewCell
 	var index:Int = 0;								// Cell index in the container
 	
 	// Whether or not the cell is currently selected.
-	var isSelected:Bool = false
+	var isCellSelected:Bool = false
 	{
 		didSet
 		{
 			// When the cell switches to selected,
 			// setup the border.
-			if isSelected
+			if isCellSelected
 			{
 				self.layer.borderColor = UIColor.yellowColor().CGColor;
 				//self.layer.cornerRadius = 10;
@@ -75,7 +75,7 @@ class CardSpotCell:UICollectionViewCell
 				(Bool)->Void in
 				self.cardImage.image = nil;
 				self.cardImage.alpha = 1;
-				self.isSelected = false;
+				self.isCellSelected = false;
 				self.card = nil;
 				return;
 			}

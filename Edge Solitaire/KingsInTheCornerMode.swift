@@ -43,8 +43,8 @@ class KingsInTheCornerModeController: GameModeControllerProtocol
 					let check = checkFn(cardOnSpot: cell.card);
 					
 					// Update the all/one flags accordingly.
-					allChecksPassed = allChecksPassed & check;
-					oneCheckPassed = oneCheckPassed | check;
+					allChecksPassed = allChecksPassed && check;
+					oneCheckPassed = oneCheckPassed || check;
 				}
 			}
 		}

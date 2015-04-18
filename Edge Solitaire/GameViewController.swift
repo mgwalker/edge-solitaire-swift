@@ -83,7 +83,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		static func addCardSpot(cardSpot:CardSpotCell)
 		{
 			// Set its selection, add it to the list
-			cardSpot.isSelected = true;
+			cardSpot.isCellSelected = true;
 			selectedCardSpots += [ cardSpot ];
 		}
 		
@@ -92,7 +92,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 			// Clear the card's selection regardless
 			// of whether or not it's currently selected.
 			// Just a nice safety feature.
-			cardSpot.isSelected = false;
+			cardSpot.isCellSelected = false;
 
 			// Now loop over the selection...
 			for i in 0..<selectedCardSpots.count
@@ -111,7 +111,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 		{
 			for i in 0..<selectedCardSpots.count
 			{
-				selectedCardSpots[i].isSelected = false;
+				selectedCardSpots[i].isCellSelected = false;
 			}
 			selectedCardSpots = [ ];
 		}
@@ -170,7 +170,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 							
 							// If it's already selected, remove it from the
 							// selection group...
-							if cell.isSelected
+							if cell.isCellSelected
 							{
 								CardCellSelectionGroup.removeCardSpot(cell);
 								if self.gameModeController.canClearSelectedCards(CardCellSelectionGroup.selectedCards)

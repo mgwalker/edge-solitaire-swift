@@ -22,10 +22,10 @@ extension UIViewController
 	// And this one is really an override of the UIViewController
 	// base class, but apparently the override keyword doesn't
 	// work on extensions, so that's kind of weird.
-	func prefersStatusBarHidden() -> Bool
-	{
-		return true;
-	}
+	//@objc override func prefersStatusBarHidden() -> Bool
+	//{
+	//	return true;
+	//}
 }
 
 // The landing view is the very first one, which makes sense.

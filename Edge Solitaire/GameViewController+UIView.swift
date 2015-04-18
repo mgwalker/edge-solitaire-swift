@@ -31,7 +31,7 @@ extension GameViewController
 		super.viewDidLayoutSubviews();
 		
 		// Get the layout for the collection view.
-		let layout = self.cardCollection.collectionViewLayout as UICollectionViewFlowLayout;
+		let layout = self.cardCollection.collectionViewLayout as! UICollectionViewFlowLayout;
 		
 		// The size of the collection view.  Dur.
 		var containerSize = self.cardCollection.bounds.size;

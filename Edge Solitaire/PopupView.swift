@@ -49,7 +49,7 @@ class PopupView:UIView
 		let popupBlur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark));
 		popupBlur.frame = container.frame;
 		
-		let popup = NSBundle.mainBundle().loadNibNamed("PopupView", owner: nil, options: nil)[0] as PopupView;
+		let popup = NSBundle.mainBundle().loadNibNamed("PopupView", owner: nil, options: nil)[0] as! PopupView;
 		popup.frame = popupBlur.frame;
 		popup.center = popupBlur.center;
 		popupBlur.contentView.addSubview(popup);
