@@ -21,6 +21,7 @@ extension GameViewController
 		super.viewWillAppear(animated);
 		showGameStats();
 		self.startNewGame(nil);
+		setMuteButton();
 	}
 	
 	// We don't know what size the collection view will be until

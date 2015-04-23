@@ -14,6 +14,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	@IBOutlet var nextCard:UIButton!;				// "Next card" button
 	@IBOutlet var gameStat:UIBarItem!;
 	@IBOutlet var instruction:UILabel!;
+	@IBOutlet var muteButton:UIBarButtonItem!;
 	
 	// Possible board states
 	enum BoardState
@@ -168,6 +169,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						if canSelect
 						{
 							self.instruction.text = self.gameModeController.clearingInstruction;
+							//Sounds.play(Sounds.SoundType.CardPlaced);
 							
 							// If it's already selected, remove it from the
 							// selection group...
@@ -393,12 +395,20 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 				}
 			}
 		}
-		
 	}
 	
 	func quitToMenu(popup: PopupView?)
 	{
 		popup?.close();
 		self.navigationController?.popToRootViewControllerAnimated(true);
+	}
+	
+	@IBAction func toggleMute() {
+		Settings.muted = !Settings.muted;
+		setMuteButton();
+	}
+	
+	func setMuteButton() {
+		self.muteButton.image = (Settings.muted ? UIImage(named: "Control - Unmute") : UIImage(named: "Control - Mute"));
 	}
 }

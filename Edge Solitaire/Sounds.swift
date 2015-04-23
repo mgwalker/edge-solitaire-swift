@@ -58,9 +58,10 @@ public class Sounds {
 			}
 			
 			player.currentTime = 0;
-			if !player.playing {
-				player.play();
+			if player.playing {
+				player.stop();
 			}
+			player.play();
 		}
 	}
 }
