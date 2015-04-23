@@ -92,7 +92,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kj9-fI-clz" id="plY-QA-fRA">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart 13" translatesAutoresizingMaskIntoConstraints="NO" id="4SV-2A-Vze">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Face - K♠" translatesAutoresizingMaskIntoConstraints="NO" id="4SV-2A-Vze">
                                                     <rect key="frame" x="20" y="10" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="x48-me-DCl"/>
@@ -189,7 +189,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wkg-6w-VTm" id="TeH-7H-oX7">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Club 12" translatesAutoresizingMaskIntoConstraints="NO" id="bBt-XO-dBj">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Face - Q♣" translatesAutoresizingMaskIntoConstraints="NO" id="bBt-XO-dBj">
                                                     <rect key="frame" x="20" y="10" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="cjS-7k-atq"/>
@@ -264,8 +264,10 @@
                     <navigationItem key="navigationItem" id="qa3-B6-QSZ"/>
                     <connections>
                         <outlet property="kingsInTheCornerDescription" destination="ziS-Ff-Q4X" id="86A-EJ-h8A"/>
+                        <outlet property="kingsInTheCornerImage" destination="4SV-2A-Vze" id="qtw-i3-gBF"/>
                         <outlet property="kingsInTheCornerStats" destination="zDR-fv-Zuh" id="l39-UQ-E9z"/>
                         <outlet property="royalsOnEdgeDescription" destination="M78-n6-Ils" id="QGf-v8-Ewk"/>
+                        <outlet property="royalsOnEdgeImage" destination="bBt-XO-dBj" id="LSo-bH-d0f"/>
                         <outlet property="royalsOnEdgeStats" destination="SHr-p7-8DI" id="4fc-Dd-E2h"/>
                     </connections>
                 </tableViewController>
@@ -459,10 +461,10 @@
     <resources>
         <image name="Back - Red" width="64" height="79"/>
         <image name="Card Spot" width="64" height="79"/>
-        <image name="Club 12" width="64" height="79"/>
         <image name="Control - Restart" width="20" height="20"/>
         <image name="Control - Unmute" width="20" height="20"/>
-        <image name="Heart 13" width="64" height="79"/>
+        <image name="Face - K♠" width="800" height="1200"/>
+        <image name="Face - Q♣" width="800" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c67-6h-cQ4"/>

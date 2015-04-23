@@ -15,10 +15,12 @@ class GameModeViewController:UITableViewController
 	@IBOutlet var kingsInTheCornerDescription:UILabel!;
 	@IBOutlet var kingsInTheCornerStats:UILabel!;
 	@IBOutlet var kingsInTheCornerCell:UITableViewCell!;
+	@IBOutlet var kingsInTheCornerImage:UIImageView!;
 	
 	@IBOutlet var royalsOnEdgeDescription:UILabel!;
 	@IBOutlet var royalsOnEdgeStats:UILabel!;
 	@IBOutlet var royalsOnEdgeCell:UITableViewCell!;
+	@IBOutlet var royalsOnEdgeImage:UIImageView!;
 	
 	override func viewDidLoad()
 	{
@@ -46,16 +48,21 @@ class GameModeViewController:UITableViewController
 		let formatter = NSNumberFormatter();
 		formatter.formatterBehavior = NSNumberFormatterBehavior.Behavior10_4;
 		formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle;
+		
+		//let suits = [ "♣", "♦", "♥", "♠" ];
+		let suit = [ "♣", "♦", "♥", "♠" ][Int(arc4random_uniform(4))];
 
 		let kingsInTheCornerStats = Settings.gameStatsForMode(GameMode.KingsInTheCorner);
 		let kPlay = formatter.stringFromNumber(NSNumber(integer: kingsInTheCornerStats.played))!;
 		let kWon = formatter.stringFromNumber(NSNumber(integer: kingsInTheCornerStats.won))!;
 		let kPct = NSString(format: "%.1f", kingsInTheCornerStats.percent);
+		kingsInTheCornerImage.image = UIImage(named: "Face - K" + suit);
 		
 		let royalsOnEdgeStats = Settings.gameStatsForMode(GameMode.RoyalsOnEdge);
 		let rPlay = formatter.stringFromNumber(NSNumber(integer: royalsOnEdgeStats.played))!;
 		let rWon = formatter.stringFromNumber(NSNumber(integer: royalsOnEdgeStats.won))!;
 		let rPct = NSString(format: "%.1f", royalsOnEdgeStats.percent);
+		royalsOnEdgeImage.image = UIImage(named: "Face - Q" + suit);
 		
 		let familesDividedStats = Settings.gameStatsForMode(GameMode.FamiliesDivided);
 		let fPlay = formatter.stringFromNumber(NSNumber(integer: familesDividedStats.played))!;
