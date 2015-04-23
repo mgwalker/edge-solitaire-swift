@@ -153,6 +153,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					{
 						// Set the card and advance the game.
 						cell.card = deck[0];
+						Sounds.play(Sounds.SoundType.CardPlaced);
 						self.advanceGame();
 					}
 					else if !canPlace
@@ -176,6 +177,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 								if self.gameModeController.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
 								{
 									CardCellSelectionGroup.clearSelection();
+									Sounds.play(Sounds.SoundType.CardsCleared);
 								}
 							}
 							// ...otherwise, add it to the selection group.
@@ -185,6 +187,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 								if self.gameModeController.canClearSelectedCards(CardCellSelectionGroup.selectedCards)
 								{
 									CardCellSelectionGroup.clearSelection();
+									Sounds.play(Sounds.SoundType.CardsCleared);
 								}
 							}
 						}
@@ -232,6 +235,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 					let popup = PopupView.showPopup(type: PopupView.PopupType.Win, onView: self.view);
 					popup.restartGameCallback = self.startNewGame;
 					popup.quitGameCallback = self.quitToMenu;
+					Sounds.play(Sounds.SoundType.GameWon);
 					return;
 				}
 
@@ -268,6 +272,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotRemove, onView: self.view);
 						popup.restartGameCallback = self.startNewGame;
 						popup.quitGameCallback = self.quitToMenu;
+						Sounds.play(Sounds.SoundType.GameLost);
 					}
 				}
 				else
@@ -281,6 +286,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						let popup = PopupView.showPopup(type: PopupView.PopupType.CannotPlace, onView: self.view);
 						popup.restartGameCallback = self.startNewGame;
 						popup.quitGameCallback = self.quitToMenu;
+						Sounds.play(Sounds.SoundType.GameLost);
 					}
 				}
 			

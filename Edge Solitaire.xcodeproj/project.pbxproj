@@ -15,6 +15,7 @@
 		B92BAE901947D29B001D3093 /* GameModeControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE8F1947D29B001D3093 /* GameModeControllerProtocol.swift */; };
 		B92BAE921947D328001D3093 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE911947D328001D3093 /* Card.swift */; };
 		B92BAE961947DF95001D3093 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BAE951947DF95001D3093 /* GameViewController.swift */; };
+		B952F7771AE43B9100843BB4 /* SumToTenChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A8E8F199857FC00A903D2 /* SumToTenChecker.swift */; };
 		B969D60519CFAC5D00D7622E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B969D60419CFAC5D00D7622E /* Settings.swift */; };
 		B98AA74A193D535200779305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA749193D535200779305 /* AppDelegate.swift */; };
 		B98AA74F193D535200779305 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98AA74E193D535200779305 /* LandingViewController.swift */; };
@@ -24,6 +25,10 @@
 		B99A8E90199857FC00A903D2 /* SumToTenChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A8E8F199857FC00A903D2 /* SumToTenChecker.swift */; };
 		B99A8E921998583100A903D2 /* RoyalsOnEdgeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A8E911998583100A903D2 /* RoyalsOnEdgeMode.swift */; };
 		B9ABB6EE1968DDC500EC287E /* KingsInTheCornerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */; };
+		B9BD9F051AE873C20044F90E /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = B9BD9F041AE873C20044F90E /* Sounds */; };
+		B9BD9F071AE8747A0044F90E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BD9F061AE8747A0044F90E /* AVFoundation.framework */; };
+		B9BD9F0B1AE875250044F90E /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BD9F0A1AE875250044F90E /* Sounds.swift */; };
+		B9BD9F0C1AE87D9E0044F90E /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = B9BD9F041AE873C20044F90E /* Sounds */; };
 		B9E5C65F1970BC3F0044DB75 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E5C65E1970BC3F0044DB75 /* PopupView.xib */; };
 		B9E5C6611970C0AE0044DB75 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5C6601970C0AE0044DB75 /* PopupView.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +65,10 @@
 		B99A8E8F199857FC00A903D2 /* SumToTenChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumToTenChecker.swift; sourceTree = "<group>"; };
 		B99A8E911998583100A903D2 /* RoyalsOnEdgeMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoyalsOnEdgeMode.swift; sourceTree = "<group>"; };
 		B9ABB6ED1968DDC500EC287E /* KingsInTheCornerMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingsInTheCornerMode.swift; sourceTree = "<group>"; };
+		B9BD9F041AE873C20044F90E /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		B9BD9F061AE8747A0044F90E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B9BD9F081AE874920044F90E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		B9BD9F0A1AE875250044F90E /* Sounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
 		B9E5C65E1970BC3F0044DB75 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		B9E5C6601970C0AE0044DB75 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9BD9F071AE8747A0044F90E /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +98,7 @@
 				B90055651969A5F6009AD1B6 /* UIImage+tintedImage.swift */,
 				B900556A1969EE92009AD1B6 /* CardSpotCell.swift */,
 				B969D60419CFAC5D00D7622E /* Settings.swift */,
+				B9BD9F0A1AE875250044F90E /* Sounds.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -126,6 +137,8 @@
 		B98AA73B193D535200779305 = {
 			isa = PBXGroup;
 			children = (
+				B9BD9F081AE874920044F90E /* CoreAudio.framework */,
+				B9BD9F061AE8747A0044F90E /* AVFoundation.framework */,
 				B98AA746193D535200779305 /* Edge Solitaire */,
 				B98AA75C193D535200779305 /* Edge SolitaireTests */,
 				B98AA745193D535200779305 /* Products */,
@@ -144,6 +157,7 @@
 		B98AA746193D535200779305 /* Edge Solitaire */ = {
 			isa = PBXGroup;
 			children = (
+				B9BD9F041AE873C20044F90E /* Sounds */,
 				B98AA753193D535200779305 /* Images.xcassets */,
 				B9E5C65C1970BC090044DB75 /* Views */,
 				B98AA749193D535200779305 /* AppDelegate.swift */,
@@ -282,6 +296,7 @@
 			files = (
 				B9E5C65F1970BC3F0044DB75 /* PopupView.xib in Resources */,
 				B98AA752193D535200779305 /* Main.storyboard in Resources */,
+				B9BD9F051AE873C20044F90E /* Sounds in Resources */,
 				B98AA754193D535200779305 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9BD9F0C1AE87D9E0044F90E /* Sounds in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +319,7 @@
 				B98AA74F193D535200779305 /* LandingViewController.swift in Sources */,
 				B900556B1969EE92009AD1B6 /* CardSpotCell.swift in Sources */,
 				B9ABB6EE1968DDC500EC287E /* KingsInTheCornerMode.swift in Sources */,
+				B9BD9F0B1AE875250044F90E /* Sounds.swift in Sources */,
 				B92BAE8B193EA93A001D3093 /* GameModeViewController.swift in Sources */,
 				B92BAE921947D328001D3093 /* Card.swift in Sources */,
 				B90055691969EE47009AD1B6 /* GameViewController+collectionViewDataSource.swift in Sources */,
@@ -322,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B952F7771AE43B9100843BB4 /* SumToTenChecker.swift in Sources */,
 				B98AA760193D535200779305 /* Edge_SolitaireTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
