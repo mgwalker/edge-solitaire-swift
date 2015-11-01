@@ -30,12 +30,12 @@ extension UIImage
 			let rect = CGRectMake(0, 0, source.size.width, source.size.height);
 			
 			// Draw the image as a mask.
-			CGContextSetBlendMode(context, kCGBlendModeNormal);
+			CGContextSetBlendMode(context, CGBlendMode.Normal);
 			CGContextDrawImage(context, rect, source.CGImage);
 			
 			// And now paint in the tint color blended with
 			// the mask.  Hooray!
-			CGContextSetBlendMode(context, kCGBlendModeSourceIn);
+			CGContextSetBlendMode(context, CGBlendMode.SourceIn);
 			tint.setFill();
 			CGContextFillRect(context, rect);
 			

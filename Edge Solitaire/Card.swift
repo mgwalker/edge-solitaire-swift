@@ -55,7 +55,7 @@ class Card : Hashable
 	let suit:Suit;	// Card's suit and
 	let rank:Rank;	// rank.  Constants.
 	
-	init(suit:Suit, rank:Rank)
+	required init(suit:Suit, rank:Rank)
 	{
 		self.suit = suit;
 		self.rank = rank;
@@ -88,7 +88,7 @@ class Card : Hashable
 		for i in 0..<cards.count
 		{
 			let swap = Int(arc4random_uniform(52 - UInt32(i)));
-			var temp = cards[51 - i];
+			let temp = cards[51 - i];
 			cards[51 - i] = cards[swap];
 			cards[swap] = temp;
 		}
@@ -128,16 +128,16 @@ class Card : Hashable
 		{
 		get
 		{
-			var documentURL = NSFileManager.defaultManager().URLForDirectory(
+			var documentURL = try! NSFileManager.defaultManager().URLForDirectory(
 				NSSearchPathDirectory.ApplicationSupportDirectory,
 				inDomain: NSSearchPathDomainMask.UserDomainMask,
 				appropriateForURL: nil,
-				create: true,
-				error: nil)!;
+				create: true);
 			
 			// set1 is here so we can add more card sets later, perhaps,
 			// without having to re-generate anything
 			documentURL = documentURL.URLByAppendingPathComponent("set1-\(self.hashValue).png");
+			//NSLog(documentURL.absoluteString);
 			
 			if NSFileManager.defaultManager().fileExistsAtPath(documentURL.path!)
 			{
@@ -159,7 +159,7 @@ class Card : Hashable
 			let rank = UIImage.tintedImage(named: "Rank - \(self.rank.rawValue)", tint:UIColor.whiteColor())!;
 			
 			UIGraphicsBeginImageContext(template.size);
-			let context = UIGraphicsGetCurrentContext();
+			_ = UIGraphicsGetCurrentContext();
 			
 			blank.drawAtPoint(CGPoint(x: 0, y: 0));
 			template.drawAtPoint(CGPoint(x: 0, y: 0));
@@ -251,16 +251,16 @@ class Card : Hashable
 					x: (template.size.width - face.size.width) / 2.0,
 					y: (template.size.height - face.size.height) / 2.0));
 
-				var rankX = template.size.width - 75 - rank.size.width;
-				var rankY = 87.5 - (rank.size.height / 2.0);
+				let rankX = template.size.width - 75 - rank.size.width;
+				let rankY = 87.5 - (rank.size.height / 2.0);
 				suit.drawAtPoint(CGPoint(x: rankX, y: rankY));
 			}
 			
 			let final = UIGraphicsGetImageFromCurrentImageContext();
 			UIGraphicsEndImageContext();
 			
-			UIImagePNGRepresentation(final).writeToURL(documentURL, atomically: false);
-			documentURL.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey, error: nil);
+			UIImagePNGRepresentation(final)!.writeToURL(documentURL, atomically: false);
+			try! documentURL.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey);
 			
 			return final;
 		}

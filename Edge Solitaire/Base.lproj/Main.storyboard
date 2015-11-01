@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lrV-WY-kLI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lrV-WY-kLI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -12,6 +13,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bnl-Jy-IIO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="ibl-FK-dwg" kind="relationship" relationship="rootViewController" id="Ldc-va-8T4"/>
@@ -28,17 +30,21 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Joi-TH-2nV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.2529747376" green="0.47741168480000001" blue="0.2653448866" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="1gT-A4-cTA">
                                 <cells>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="2Iv-Ic-Vb3">
+                                        <rect key="frame" x="0.0" y="35" width="600" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Iv-Ic-Vb3" id="gaT-a8-wKQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4f-qF-QU3">
                                                     <rect key="frame" x="20" y="0.0" width="560" height="40"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="32"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -46,6 +52,7 @@
                                                     <size key="shadowOffset" width="0.0" height="2"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="M4f-qF-QU3" secondAttribute="bottom" id="8H7-k1-Cu7"/>
@@ -54,6 +61,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="M4f-qF-QU3" secondAttribute="trailing" constant="20" id="jTf-o7-Ggr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
@@ -61,12 +69,15 @@
                             <tableViewSection id="eV6-8E-iXq">
                                 <cells>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="30" id="7Wb-iX-uia">
+                                        <rect key="frame" x="0.0" y="95" width="600" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="7Wb-iX-uia" id="vg6-x9-qp2">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kings in the Corner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-id-wVt">
                                                     <rect key="frame" x="420" y="0.0" width="180" height="30"/>
+                                                    <animations/>
                                                     <color key="backgroundColor" red="0.65490196079999996" green="0.0" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Elx-nb-vdR"/>
@@ -79,32 +90,39 @@
                                                     <size key="shadowOffset" width="0.0" height="1"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="QXh-id-wVt" secondAttribute="trailing" id="3G5-yb-w6E"/>
                                                 <constraint firstItem="QXh-id-wVt" firstAttribute="top" secondItem="vg6-x9-qp2" secondAttribute="top" id="KgO-pT-qKE"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Kings in the Corner" rowHeight="100" id="kj9-fI-clz">
+                                        <rect key="frame" x="0.0" y="125" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kj9-fI-clz" id="plY-QA-fRA">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Face - K♠" translatesAutoresizingMaskIntoConstraints="NO" id="4SV-2A-Vze">
                                                     <rect key="frame" x="20" y="10" width="80" height="80"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="x48-me-DCl"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only the Kings have to sit their thrones while the rest of the Court may go wherever it pleases.  This is the easiest mode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="350" translatesAutoresizingMaskIntoConstraints="NO" id="ziS-Ff-Q4X">
                                                     <rect key="frame" x="110" y="10" width="470" height="80"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="ziS-Ff-Q4X" firstAttribute="top" secondItem="4SV-2A-Vze" secondAttribute="top" id="Nmv-eP-Msi"/>
                                                 <constraint firstItem="ziS-Ff-Q4X" firstAttribute="leading" secondItem="4SV-2A-Vze" secondAttribute="trailing" constant="10" id="V5H-Lf-xu5"/>
@@ -115,17 +133,21 @@
                                                 <constraint firstItem="4SV-2A-Vze" firstAttribute="top" secondItem="plY-QA-fRA" secondAttribute="top" constant="10" id="oIM-Pv-9bW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                         <connections>
                                             <segue destination="q5S-tQ-aJj" kind="show" id="c67-6h-cQ4"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Stats" rowHeight="15" id="RHZ-Qu-EQt">
+                                        <rect key="frame" x="0.0" y="225" width="600" height="15"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RHZ-Qu-EQt" id="7Ox-2U-Ovl">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Won 38 of 50 games (76%)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDR-fv-Zuh">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="14.5"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="I9v-Oe-FSA"/>
                                                     </constraints>
@@ -134,6 +156,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="zDR-fv-Zuh" firstAttribute="leading" secondItem="7Ox-2U-Ovl" secondAttribute="leadingMargin" id="AJU-c9-Tku"/>
                                                 <constraint firstItem="zDR-fv-Zuh" firstAttribute="top" secondItem="7Ox-2U-Ovl" secondAttribute="topMargin" constant="-8" id="Lu8-He-I3L"/>
@@ -152,18 +175,22 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="qRV-im-jvj">
                                 <cells>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="30" id="Jsd-Cv-fUD">
+                                        <rect key="frame" x="0.0" y="260" width="600" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="Jsd-Cv-fUD" id="Ttn-1t-NL5">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Royals on Edge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16L-M0-AiQ">
                                                     <rect key="frame" x="420" y="0.0" width="180" height="30"/>
+                                                    <animations/>
                                                     <color key="backgroundColor" red="0.65490196079999996" green="0.0" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="BGi-o5-t6Y"/>
@@ -176,32 +203,39 @@
                                                     <size key="shadowOffset" width="0.0" height="1"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="16L-M0-AiQ" secondAttribute="trailing" id="LZG-40-zu3"/>
                                                 <constraint firstItem="16L-M0-AiQ" firstAttribute="top" secondItem="Ttn-1t-NL5" secondAttribute="top" id="UOC-Po-a9u"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Royals on Edge" rowHeight="100" id="wkg-6w-VTm">
+                                        <rect key="frame" x="0.0" y="290" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wkg-6w-VTm" id="TeH-7H-oX7">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Face - Q♣" translatesAutoresizingMaskIntoConstraints="NO" id="bBt-XO-dBj">
                                                     <rect key="frame" x="20" y="10" width="80" height="80"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="cjS-7k-atq"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All the Royals must sit around the table, but at least the seats are not assigned by nation.  This is the standard game mode." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="350" translatesAutoresizingMaskIntoConstraints="NO" id="M78-n6-Ils">
                                                     <rect key="frame" x="110" y="10" width="470" height="80"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="bBt-XO-dBj" firstAttribute="leading" secondItem="TeH-7H-oX7" secondAttribute="leading" constant="20" symbolic="YES" id="Bgb-U8-fxM"/>
                                                 <constraint firstAttribute="trailing" secondItem="M78-n6-Ils" secondAttribute="trailing" constant="20" symbolic="YES" id="GSE-aX-llM"/>
@@ -212,17 +246,21 @@
                                                 <constraint firstItem="bBt-XO-dBj" firstAttribute="top" secondItem="TeH-7H-oX7" secondAttribute="top" constant="10" id="sfh-Gm-Qh7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                         <connections>
                                             <segue destination="q5S-tQ-aJj" kind="show" id="FV8-w0-7Ej"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Stats" rowHeight="15" id="H1g-vg-HmU">
+                                        <rect key="frame" x="0.0" y="390" width="600" height="15"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H1g-vg-HmU" id="MVu-Nu-QfX">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Won 38 of 50 games (76%)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHr-p7-8DI">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="14.5"/>
+                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="pfz-DZ-NPJ"/>
                                                     </constraints>
@@ -231,6 +269,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="centerX" secondItem="SHr-p7-8DI" secondAttribute="centerX" id="0He-i0-gI5"/>
                                                 <constraint firstItem="SHr-p7-8DI" firstAttribute="leading" secondItem="MVu-Nu-QfX" secondAttribute="leadingMargin" id="FXU-97-pOx"/>
@@ -249,6 +288,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -289,6 +329,7 @@
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dc0-5y-rj0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="RQn-bL-ngG"/>
                                 </constraints>
@@ -315,6 +356,7 @@
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bBw-dq-dKZ">
                                 <rect key="frame" x="0.0" y="44" width="320" height="374"/>
+                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="30" id="eqR-rq-gRk">
                                     <size key="itemSize" width="50" height="70"/>
@@ -324,6 +366,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Card Spot Cell" id="maH-PD-xaP" customClass="CardSpotCell" customModule="Edge_Solitaire" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="15" width="50" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
@@ -331,16 +374,21 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card Spot" translatesAutoresizingMaskIntoConstraints="NO" id="pkn-0N-vA0" userLabel="Card Spot">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                                                    <animations/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VCE-vB-DIz" userLabel="Card Marker">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                                                    <animations/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PMl-0A-5P6" userLabel="Card">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                                                    <animations/>
                                                 </imageView>
                                             </subviews>
+                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="VCE-vB-DIz" secondAttribute="bottom" id="3m0-9M-o31"/>
                                             <constraint firstAttribute="trailing" secondItem="VCE-vB-DIz" secondAttribute="trailing" id="8YV-bq-w56"/>
@@ -374,6 +422,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zho-JD-ldE">
                                         <rect key="frame" x="193" y="0.0" width="107" height="150"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="107" id="3LZ-zY-wPT"/>
                                             <constraint firstAttribute="height" constant="150" id="FOG-8C-7Hy"/>
@@ -401,11 +450,13 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="run-b9-Kyb">
                                         <rect key="frame" x="8" y="8" width="177" height="134"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zho-JD-ldE" secondAttribute="trailing" constant="20" id="HzT-uY-JJQ"/>
@@ -429,6 +480,7 @@
                                 </variation>
                             </view>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.2529747376" green="0.47741168480000001" blue="0.2653448866" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bBw-dq-dKZ" firstAttribute="leading" secondItem="Yb6-Ec-lKc" secondAttribute="leading" id="57g-is-WGp"/>

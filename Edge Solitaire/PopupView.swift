@@ -44,7 +44,7 @@ class PopupView:UIView
 			});
 	}
 
-	class func showPopup(#type:PopupType, onView container:UIView) -> PopupView
+	class func showPopup(type type:PopupType, onView container:UIView) -> PopupView
 	{
 		let popupBlur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark));
 		popupBlur.frame = container.frame;

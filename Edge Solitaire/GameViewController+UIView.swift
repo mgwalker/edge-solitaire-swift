@@ -35,7 +35,7 @@ extension GameViewController
 		let layout = self.cardCollection.collectionViewLayout as! UICollectionViewFlowLayout;
 		
 		// The size of the collection view.  Dur.
-		var containerSize = self.cardCollection.bounds.size;
+		let containerSize = self.cardCollection.bounds.size;
 		
 		var itemSize = CGSize(width: 0, height: 0);	// Initial item size
 		var itemSpacing:CGFloat = 0;				// Initial horizontal spacing between cells

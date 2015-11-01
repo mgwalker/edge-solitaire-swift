@@ -42,7 +42,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 
 		var statString = "";
 		
-		var size = self.traitCollection.horizontalSizeClass;
+		let size = self.traitCollection.horizontalSizeClass;
 		switch(size)
 		{
 			case .Compact:
@@ -169,7 +169,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 						if canSelect
 						{
 							self.instruction.text = self.gameModeController.clearingInstruction;
-							//Sounds.play(Sounds.SoundType.CardPlaced);
+							Sounds.play(Sounds.SoundType.CardPlaced);
 							
 							// If it's already selected, remove it from the
 							// selection group...
@@ -363,7 +363,7 @@ class GameViewController:UIViewController,UICollectionViewDataSource,UICollectio
 	
 	func startNewGame(popup: PopupView?)
 	{
-		let stats = Settings.gameStatsForMode(self.gameModeController.mode);
+		//let stats = Settings.gameStatsForMode(self.gameModeController.mode);
 		
 		popup?.close();
 		

@@ -20,18 +20,32 @@ public class Sounds {
 		case CardPlaced, CardsCleared, GameLost, GameWon
 	}
 	
+	private class SoundDelegate : NSObject, AVAudioPlayerDelegate {
+		@objc func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+			player.prepareToPlay();
+		}
+	}
+	
 	public static func initialize() {
-		AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, error: nil);
+		do {
+			try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient);
 
-		_cardPlacedSound = AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("Sounds/Place", withExtension: ".mp3"), error: nil);
-		_cardsClearedSound = AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("Sounds/Clear", withExtension: ".mp3"), error: nil);
-		_gameLostSound = AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("Sounds/GameOver", withExtension: ".mp3"), error: nil);
-		_gameWonSound = AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("Sounds/Win", withExtension: ".mp3"), error: nil);
-		
-		Sounds._cardPlacedSound!.prepareToPlay();
-		Sounds._cardsClearedSound!.prepareToPlay();
-		Sounds._gameLostSound!.prepareToPlay();
-		Sounds._gameWonSound!.prepareToPlay();
+			_cardPlacedSound = try AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("Sounds/Place", withExtension: ".mp3")!);
+			_cardPlacedSound?.prepareToPlay();
+			//_cardPlacedSound?.delegate = SoundDelegate();
+
+			_cardsClearedSound = try AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("Sounds/Clear", withExtension: ".mp3")!);
+			_cardsClearedSound?.prepareToPlay();
+			//_cardsClearedSound?.delegate = SoundDelegate();
+
+			_gameLostSound = try AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("Sounds/GameOver", withExtension: ".mp3")!);
+			_gameLostSound?.prepareToPlay();
+			//_gameLostSound?.delegate = SoundDelegate();
+
+			_gameWonSound = try AVAudioPlayer(contentsOfURL: NSBundle.mainBundle().URLForResource("Sounds/Win", withExtension: ".mp3")!);
+			_gameWonSound?.prepareToPlay();
+			//_gameWonSound?.delegate = SoundDelegate();
+		} catch { }
 	}
 	
 	public static func play(sound:SoundType) {
@@ -58,10 +72,13 @@ public class Sounds {
 			}
 			
 			player.currentTime = 0;
-			if player.playing {
-				player.stop();
-			}
-			player.play();
+			//if !player.playing {
+				player.play();
+			//}
+			//if player.playing {
+			//	player.stop();
+			//}
+			//player.play();
 		}
 	}
 }

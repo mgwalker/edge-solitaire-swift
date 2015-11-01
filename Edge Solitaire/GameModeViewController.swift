@@ -35,7 +35,7 @@ class GameModeViewController:UITableViewController
 		// Set the size of the description text based on our
 		// size class.  Narrow devices will need smaller fonts,
 		// wide devices have lots of dead space.  Fill it up.
-		var size = self.traitCollection.horizontalSizeClass;
+		let size = self.traitCollection.horizontalSizeClass;
 		switch size
 		{
 			case UIUserInterfaceSizeClass.Compact:
